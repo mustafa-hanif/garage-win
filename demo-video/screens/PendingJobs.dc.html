@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Garage Pro pending job cards</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0;font-family:Geist,ui-sans-serif,system-ui,sans-serif;color:#111827;background:#f9fafb;font-size:14px}
+a{color:#116f3c;text-decoration:none}
+button,input,select{font-family:inherit}
+input,select{height:36px;width:100%;box-sizing:border-box;padding:0 12px;border:1px solid #d1d5db;border-radius:6px;background:#fff;color:#111827;font-size:14px}
+input[type=checkbox]{width:16px;height:16px;padding:0;accent-color:#116f3c}
+</style>
+</helmet>
+<div style="display:flex;min-height:100vh;width:100%;background:#f9fafb">
+
+  <aside style="flex:0 0 248px;background:#000;color:#f5f5f5;padding:20px 12px;box-sizing:border-box;display:flex;flex-direction:column;gap:2px">
+    <div style="display:flex;align-items:center;gap:10px;padding:4px 10px 20px">
+      <div style="width:34px;height:34px;border-radius:8px;background:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff">GP</div>
+      <div>
+        <div style="font-weight:600;font-size:16px;line-height:18px">Garage Pro</div>
+        <div style="font-size:11px;color:#9ca3af">Workshop management</div>
+      </div>
+    </div>
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="14">
+      <div>
+        <sc-if value="{{n.isHeader}}" hint-placeholder-val="{{ false }}">
+          <div style="padding:16px 12px 6px;font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#9ca3af">{{n.label}}</div>
+        </sc-if>
+        <sc-if value="{{n.isItem}}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:6px;font-size:14px;background:{{n.bg}};color:{{n.fg}};font-weight:{{n.weight}}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{n.d}}"></path></svg>
+            <span style="flex:1">{{n.label}}</span>
+            <sc-if value="{{n.hasCount}}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:11px;font-weight:600;padding:1px 7px;border-radius:9999px;background:#116f3c;color:#fff">{{n.count}}</span>
+            </sc-if>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+    <div style="flex:1"></div>
+    <div style="display:flex;align-items:center;gap:10px;padding:12px;border-top:1px solid #292a2e;margin-top:12px">
+      <div style="width:34px;height:34px;border-radius:9999px;background:#2b2d31;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">HA</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:500">Hamza Ali</div>
+        <div style="font-size:12px;color:#9ca3af">Super admin</div>
+      </div>
+    </div>
+  </aside>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="background:#fff;border-bottom:1px solid #e5e7eb;padding:0 32px;min-height:64px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+      <div style="display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border:1px solid #d1d5db;border-radius:6px;min-width:260px;color:#9ca3af">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16 M21 21l-4.3-4.3"></path></svg>
+        <span style="font-size:14px">Search plate, mobile, job card</span>
+      </div>
+      <div style="flex:1"></div>
+      <button style="display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Branch: Dubai - Al Quoz</button>
+      <button aria-label="Notifications" style="width:36px;height:36px;border-radius:6px;border:1px solid #e5e7eb;background:#fff;color:#374151;display:flex;align-items:center;justify-content:center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9 M10.3 21a1.9 1.9 0 0 0 3.4 0"></path></svg>
+      </button>
+    </header>
+
+    <main style="padding:28px 32px 40px;display:flex;flex-direction:column;gap:20px;box-sizing:border-box">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px">
+        <div>
+          <h1 style="margin:0;font-size:30px;line-height:36px;font-weight:700">Pending job cards</h1>
+          <div style="font-size:14px;color:#6b7280;margin-top:4px">Every open job card in the branch, with estimate and due date</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Export to Excel</button>
+          <button style="height:36px;padding:0 16px;border-radius:6px;border:0;background:#116f3c;color:#fff;font-size:14px;font-weight:500">+ New job card</button>
+        </div>
+      </div>
+
+      <!-- Summary strip -->
+      <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px">
+        <sc-for list="{{summary}}" as="s" hint-placeholder-count="5">
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:16px 18px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#4b5563"><span style="width:8px;height:8px;border-radius:9999px;background:{{s.c}}"></span>{{s.label}}</div>
+            <div style="font-size:26px;font-weight:700;margin-top:4px">{{s.value}}</div>
+            <div style="font-size:12px;color:#6b7280">{{s.sub}}</div>
+          </div>
+        </sc-for>
+      </section>
+
+      <!-- Filters -->
+      <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px 16px;align-items:end">
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:500;color:#374151">Branch <span style="color:#b91c1c">*</span></label><select><option>Dubai - Al Quoz</option></select></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:500;color:#374151">Plate no</label><input placeholder="e.g. Q 56081"></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:500;color:#374151">Customer name</label><input placeholder="Search customer"></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:500;color:#374151">Advisor</label><select><option>All advisors</option></select></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:500;color:#374151">Status</label><select><option>All pending statuses</option></select></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:500;color:#374151">Opened from</label><input value="01/10/2026" readOnly="{{yes}}"></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:500;color:#374151">Opened to</label><input value="18/10/2026" readOnly="{{yes}}"></div>
+          <div style="display:flex;gap:8px"><button style="flex:1;height:36px;border-radius:6px;border:0;background:#116f3c;color:#fff;font-size:14px;font-weight:500">Search</button><button style="flex:1;height:36px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Clear</button></div>
+        </div>
+      </section>
+
+      <!-- Table -->
+      <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05);overflow:hidden">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid #e5e7eb">
+          <div style="display:flex;gap:4px;background:#f3f4f6;padding:4px;border-radius:6px">
+            <sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
+              <span style="padding:6px 12px;border-radius:4px;font-size:13px;font-weight:500;background:{{t.bg}};color:{{t.fg}};box-shadow:{{t.sh}}">{{t.label}} <span style="margin-left:4px;color:#6b7280">{{t.n}}</span></span>
+            </sc-for>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#4b5563">
+            <span>Bulk actions</span>
+            <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px;font-weight:500">Assign technician</button>
+            <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px;font-weight:500">Send reminder SMS</button>
+          </div>
+        </div>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:1180px">
+            <thead>
+              <tr style="background:#f9fafb;color:#4b5563;text-align:left;font-size:12px">
+                <th style="padding:11px 8px 11px 20px;width:20px"><input type="checkbox" aria-label="Select all"></th>
+                <th style="padding:11px 10px;font-weight:500">S.No</th>
+                <th style="padding:11px 10px;font-weight:500">Job card</th>
+                <th style="padding:11px 10px;font-weight:500">Plate no</th>
+                <th style="padding:11px 10px;font-weight:500">Vehicle</th>
+                <th style="padding:11px 10px;font-weight:500">Customer</th>
+                <th style="padding:11px 10px;font-weight:500">Mobile</th>
+                <th style="padding:11px 10px;font-weight:500">Advisor</th>
+                <th style="padding:11px 10px;font-weight:500">Due out</th>
+                <th style="padding:11px 10px;font-weight:500;text-align:right">Est. price</th>
+                <th style="padding:11px 10px;font-weight:500">Status</th>
+                <th style="padding:11px 20px 11px 10px;font-weight:500;text-align:right">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{rows}}" as="r" hint-placeholder-count="14">
+                <tr style="border-top:1px solid #e5e7eb;background:{{r.rowbg}}">
+                  <td style="padding:11px 8px 11px 20px"><input type="checkbox" aria-label="Select row"></td>
+                  <td style="padding:11px 10px;color:#6b7280">{{r.n}}</td>
+                  <td style="padding:11px 10px"><a href="#" style="font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;font-weight:500">{{r.no}}</a><div style="font-size:12px;color:#6b7280">{{r.date}}</div></td>
+                  <td style="padding:11px 10px;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px">{{r.plate}}</td>
+                  <td style="padding:11px 10px"><div style="font-weight:500">{{r.brand}} {{r.model}}</div></td>
+                  <td style="padding:11px 10px">{{r.cust}}</td>
+                  <td style="padding:11px 10px;color:#4b5563">{{r.mobile}}</td>
+                  <td style="padding:11px 10px;color:#4b5563">{{r.adv}}</td>
+                  <td style="padding:11px 10px"><span style="color:{{r.dueFg}};font-weight:{{r.dueW}}">{{r.due}}</span></td>
+                  <td style="padding:11px 10px;text-align:right;font-weight:500">{{r.est}}</td>
+                  <td style="padding:11px 10px"><span style="display:inline-block;padding:2px 10px;border-radius:9999px;font-size:12px;font-weight:500;background:{{r.bg}};color:{{r.fg}};white-space:nowrap">{{r.status}}</span></td>
+                  <td style="padding:11px 20px 11px 10px;text-align:right;white-space:nowrap">
+                    <a href="#" style="font-weight:500;font-size:13px;margin-right:12px">Open</a>
+                    <a href="#" style="font-weight:500;font-size:13px;color:#4b5563">Print</a>
+                  </td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-top:1px solid #e5e7eb;background:#f9fafb;font-size:13px;color:#4b5563">
+          <span>Showing 1 to 14 of 14 job cards</span>
+          <span>Total estimate <strong style="color:#111827;font-size:15px;margin-left:8px">{{grand}}</strong></span>
+          <div style="display:flex;gap:6px">
+            <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#9ca3af;font-size:13px">Previous</button>
+            <button style="height:32px;width:32px;border-radius:6px;border:0;background:#116f3c;color:#fff;font-size:13px">1</button>
+            <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#9ca3af;font-size:13px">Next</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1480}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const I = {
+      dash: 'M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z',
+      wrench: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z',
+      file: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M8 13h8 M8 17h8',
+      receipt: 'M4 2v20l3-2 2 2 3-2 3 2 2-2 3 2V2l-3 2-2-2-3 2-3-2-2 2z M8 8h8 M8 12h8',
+      pack: 'M16.5 9.4 7.5 4.2 M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z M3.3 7 12 12l8.7-5 M12 22V12',
+      users: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.9 M16 3.1a4 4 0 0 1 0 7.8',
+      chart: 'M3 3v18h18 M7 16v-5 M12 16V7 M17 16v-9',
+      car: 'M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11 M3 11h18v6a1 1 0 0 1-1 1h-2v1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H9v1a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-1H4a1 1 0 0 1-1-1z M7 15h.01 M17 15h.01',
+      shield: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+      db: 'M12 8c4.4 0 8-1.3 8-3s-3.6-3-8-3-8 1.3-8 3 3.6 3 8 3z M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5 M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3',
+      wallet: 'M20 7H5a2 2 0 0 1 0-4h13v4 M3 5v14a2 2 0 0 0 2 2h15v-4 M17 12h5v4h-5a2 2 0 0 1 0-4z',
+      brief: 'M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16 M3 7h18a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a1 1 0 0 1 1-1z',
+      cart: 'M6 6h15l-1.5 9h-12z M6 6 5 2H2 M9 20h.01 M18 20h.01'
+    };
+    const item = (label, d, active, count) => ({ isItem: true, isHeader: false, label, d, bg: active ? '#fafafa' : 'transparent', fg: active ? '#000000' : '#e5e5e5', weight: active ? 500 : 400, hasCount: !!count, count: count || '' });
+    const head = (label) => ({ isHeader: true, isItem: false, label });
+    const nav = [
+      head('Workshop'), item('Dashboard', I.dash, false), item('Job cards', I.wrench, true, '14'), item('Estimations', I.file, false), item('Billing job cards', I.receipt, false, '3'),
+      head('Operations'), item('Customers and vehicles', I.car, false), item('Inventory', I.pack, false), item('Purchases', I.cart, false), item('Advisors', I.users, false),
+      head('Finance'), item('Invoices', I.receipt, false), item('E-invoicing', I.receipt, false), item('Accounts', I.wallet, false), item('Reports', I.chart, false),
+      head('Administration'), item('HRMS', I.brief, false), item('User privilege', I.shield, false), item('Backup', I.db, false)
+    ];
+    const summary = [
+      { label: 'Open job cards', value: '14', sub: 'across 3 advisors', c: '#111827' },
+      { label: 'Pending', value: '6', sub: 'waiting for approval', c: '#b45309' },
+      { label: 'In progress', value: '5', sub: 'in the workshop now', c: '#2563eb' },
+      { label: 'Awaiting parts', value: '2', sub: 'oldest 4 days', c: '#9333ea' },
+      { label: 'Overdue', value: '4', sub: 'past due out date', c: '#b91c1c' }
+    ];
+    const tabs = [
+      { label: 'All', n: 14, on: true }, { label: 'Pending', n: 6 }, { label: 'In progress', n: 5 }, { label: 'Awaiting parts', n: 2 }, { label: 'Ready', n: 1 }, { label: 'Overdue', n: 4 }
+    ].map((t) => ({ label: t.label, n: t.n, bg: t.on ? '#ffffff' : 'transparent', fg: t.on ? '#111827' : '#4b5563', sh: t.on ? '0 1px 2px rgb(0 0 0 / 0.05)' : 'none' }));
+    const sc = { 'Pending': ['#fffbeb', '#b45309'], 'In progress': ['#eff6ff', '#1d4ed8'], 'Awaiting parts': ['#faf5ff', '#7e22ce'], 'Ready': ['#ecf8f0', '#116f3c'] };
+    const raw = [
+      ['JC1-0003', '07/10', 'A 7456', 'Audi', 'A5', 'Taha Qureshi', '056 965 4320', 'Hamza Ali', '09/10', 6000, 'Pending', 1],
+      ['JC1-0006', '08/10', 'R 905', 'Audi', 'A5', 'Mohsin Raza', '056 954 3788', 'Hamza Ali', '10/10', 400, 'Pending', 1],
+      ['JC1-0007', '08/10', 'R 1234', 'Audi', 'A1', 'Syed Anwar', '056 605 3177', 'Noor Fatima', '11/10', 400, 'In progress', 1],
+      ['JC1-0014', '14/10', 'B 2204', 'Porsche', 'Carrera 911', 'Rashid Malik', '056 570 0717', 'Hamza Ali', '17/10', 7950, 'Awaiting parts', 1],
+      ['JC1-0015', '15/10', 'K 3314', 'Porsche', 'Cayenne S', 'Ali Rashid', '055 431 4413', 'Noor Fatima', '18/10', 3280, 'Awaiting parts', 0],
+      ['JC1-0016', '15/10', 'M 5435', 'Porsche', 'Carrera S', 'Faisal Jamil', '052 543 4340', 'Hamza Ali', '19/10', 5200, 'In progress', 0],
+      ['JC1-0017', '15/10', 'D 5225', 'Porsche', 'Cayenne S', 'Ali Rashid', '055 431 4413', 'Noor Fatima', '19/10', 1450, 'In progress', 0],
+      ['JC1-0024', '18/10', 'A 8821', 'BMW', 'X5', 'Karim Nasser', '050 220 9981', 'Hamza Ali', '20/10', 980, 'Pending', 0],
+      ['JC1-0031', '19/10', 'D 8945', 'Audi', 'A6', 'Hammad Iqbal', '056 789 1235', 'Noor Fatima', '21/10', 4110, 'Pending', 0],
+      ['JC1-0032', '20/10', 'Q 5608', 'Audi', 'A7', 'Anish Menon', '056 954 7867', 'Hamza Ali', '21/10', 384.84, 'Ready', 0],
+      ['JC1-0035', '22/10', 'K 7077', 'Audi', 'A4', 'Vikas Sharma', '056 954 3789', 'Noor Fatima', '23/10', 1240, 'In progress', 0],
+      ['JC1-0036', '22/10', 'M 9099', 'Audi', 'A5', 'Fatima Al Zaabi', '052 220 6611', 'Hamza Ali', '23/10', 860, 'Pending', 0],
+      ['JC1-0040', '22/10', 'S 1190', 'Mercedes', 'C 200', 'Sara Ahmed', '055 118 4472', 'Noor Fatima', '24/10', 2150, 'Pending', 0],
+      ['JC1-0042', '18/10', 'Q 56081', 'Audi', 'A7', 'Peter Hansen', '050 890 0000', 'Hamza Ali', '19/10', 450, 'In progress', 0]
+    ];
+    const fmt = (v) => v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    let total = 0;
+    const rows = raw.map((r, i) => {
+      total += r[9];
+      const c = sc[r[10]];
+      return { n: i + 1, no: r[0], date: r[1] + '/2026', plate: r[2], brand: r[3], model: r[4], cust: r[5], mobile: r[6], adv: r[7], due: r[8] + (r[11] ? ' (overdue)' : ''), dueFg: r[11] ? '#b91c1c' : '#374151', dueW: r[11] ? 500 : 400, est: fmt(r[9]), status: r[10], bg: c[0], fg: c[1], rowbg: '#ffffff' };
+    });
+    return { yes: true, nav, summary, tabs, rows, grand: 'AED ' + fmt(total) };
+  }
+}
+</script>
+</body>
+</html>

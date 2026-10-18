@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Garage Pro job card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0;font-family:Geist,ui-sans-serif,system-ui,sans-serif;color:#111827;background:#f9fafb;font-size:14px}
+a{color:#116f3c;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+input,select{height:36px;width:100%;box-sizing:border-box;padding:0 12px;border:1px solid #d1d5db;border-radius:6px;background:#fff;color:#111827;font-size:14px}
+textarea{width:100%;box-sizing:border-box;padding:8px 12px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;resize:none}
+</style>
+</helmet>
+<div style="display:flex;min-height:100vh;width:100%;background:#f9fafb">
+
+  <aside style="flex:0 0 248px;background:#000;color:#f5f5f5;padding:20px 12px;box-sizing:border-box;display:flex;flex-direction:column;gap:2px">
+    <div style="display:flex;align-items:center;gap:10px;padding:4px 10px 20px">
+      <div style="width:34px;height:34px;border-radius:8px;background:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff">GP</div>
+      <div>
+        <div style="font-weight:600;font-size:16px;line-height:18px">Garage Pro</div>
+        <div style="font-size:11px;color:#9ca3af">Workshop management</div>
+      </div>
+    </div>
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="14">
+      <div>
+        <sc-if value="{{n.isHeader}}" hint-placeholder-val="{{ false }}">
+          <div style="padding:16px 12px 6px;font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#9ca3af">{{n.label}}</div>
+        </sc-if>
+        <sc-if value="{{n.isItem}}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:6px;font-size:14px;background:{{n.bg}};color:{{n.fg}};font-weight:{{n.weight}}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{n.d}}"></path></svg>
+            <span style="flex:1">{{n.label}}</span>
+            <sc-if value="{{n.hasCount}}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:11px;font-weight:600;padding:1px 7px;border-radius:9999px;background:#116f3c;color:#fff">{{n.count}}</span>
+            </sc-if>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+    <div style="flex:1"></div>
+    <div style="display:flex;align-items:center;gap:10px;padding:12px;border-top:1px solid #292a2e;margin-top:12px">
+      <div style="width:34px;height:34px;border-radius:9999px;background:#2b2d31;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">HA</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:500">Hamza Ali</div>
+        <div style="font-size:12px;color:#9ca3af">Super admin</div>
+      </div>
+    </div>
+  </aside>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="background:#fff;border-bottom:1px solid #e5e7eb;padding:0 32px;min-height:64px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+      <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280;flex:1">
+        <a href="#">Job cards</a>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+        <span style="color:#111827;font-weight:500">JC1-0042</span>
+      </div>
+      <button style="display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Branch: Dubai - Al Quoz</button>
+      <button aria-label="Notifications" style="position:relative;width:36px;height:36px;border-radius:6px;border:1px solid #e5e7eb;background:#fff;color:#374151;display:flex;align-items:center;justify-content:center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9 M10.3 21a1.9 1.9 0 0 0 3.4 0"></path></svg>
+      </button>
+    </header>
+
+    <main style="padding:28px 32px 40px;display:flex;flex-direction:column;gap:24px;box-sizing:border-box">
+
+      <!-- Title row -->
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:16px">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <h1 style="margin:0;font-size:30px;line-height:36px;font-weight:700">Job card</h1>
+            <span style="font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;font-weight:500;padding:3px 10px;border-radius:6px;background:#f3f4f6;color:#374151">JC1-0042</span>
+            <span style="font-size:12px;font-weight:500;padding:3px 10px;border-radius:9999px;background:#eff6ff;color:#1d4ed8">In progress</span>
+            <span style="font-size:12px;font-weight:500;padding:3px 10px;border-radius:9999px;background:#ecf8f0;color:#116f3c">Customer approved</span>
+          </div>
+          <div style="font-size:14px;color:#6b7280;margin-top:4px">Create or update a job card. Opened 18 Oct 2026, 09:12 AM by Hamza Ali</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <button style="display:flex;align-items:center;gap:8px;height:36px;padding:0 16px;border-radius:6px;border:0;background:#116f3c;color:#fff;font-size:14px;font-weight:500">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z M17 21v-8H7v8 M7 3v5h8"></path></svg>Save job card</button>
+          <button style="display:flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7 M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2 M6 14h12v8H6z"></path></svg>Print work order</button>
+          <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Reset</button>
+          <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #116f3c;background:#fff;color:#116f3c;font-size:14px;font-weight:500">Create invoice</button>
+          <button aria-label="Delete job card" style="width:36px;height:36px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#4b5563;display:flex;align-items:center;justify-content:center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18 M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2 M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+
+        <!-- Left: forms -->
+        <div style="flex:1 1 720px;min-width:0;display:flex;flex-direction:column;gap:20px">
+
+          <!-- Vehicle and customer -->
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #e5e7eb">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:6px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">1</span><span style="font-size:18px;font-weight:600">Vehicle and customer details</span></div>
+              <span style="font-size:12px;color:#6b7280">Fields marked * are required</span>
+            </div>
+            <div style="padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px 20px">
+              <sc-for list="{{fields}}" as="f" hint-placeholder-count="20">
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <label style="font-size:13px;font-weight:500;color:#374151">{{f.label}}<span style="color:#b91c1c">{{f.req}}</span></label>
+                  <sc-if value="{{f.isText}}" hint-placeholder-val="{{ true }}">
+                    <input value="{{f.value}}" readOnly="{{yes}}" style="background:{{f.bg}};font-family:{{f.font}}">
+                  </sc-if>
+                  <sc-if value="{{f.isSelect}}" hint-placeholder-val="{{ false }}">
+                    <select><option>{{f.value}}</option></select>
+                  </sc-if>
+                </div>
+              </sc-for>
+              <div style="display:flex;flex-direction:column;gap:6px;grid-column:span 2;min-width:0">
+                <label style="font-size:13px;font-weight:500;color:#374151">Check list remark</label>
+                <textarea rows="3" readOnly="{{yes}}">Customer reports vibration at 100 km/h and weak AC airflow. Spare wheel present. Minor scratch on rear bumper, already marked on the vehicle diagram.</textarea>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;grid-column:span 1;min-width:0">
+                <label style="font-size:13px;font-weight:500;color:#374151">Remark</label>
+                <textarea rows="3" readOnly="{{yes}}">Customer will wait. Call before replacing brake discs.</textarea>
+              </div>
+            </div>
+          </section>
+
+          <!-- Job description -->
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #e5e7eb">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:6px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">2</span><span style="font-size:18px;font-weight:600">Job description</span></div>
+              <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px;font-weight:500">+ Add row</button>
+            </div>
+            <div style="padding:8px 24px 16px">
+              <sc-for list="{{desc}}" as="d" hint-placeholder-count="5">
+                <div style="display:flex;align-items:center;gap:12px;padding:6px 0;border-bottom:1px solid #f3f4f6">
+                  <span style="width:24px;font-size:13px;color:#6b7280">{{d.n}}</span>
+                  <input value="{{d.text}}" readOnly="{{yes}}" placeholder="Describe the work required" style="flex:1">
+                  <button aria-label="Remove row" style="width:32px;height:32px;border-radius:6px;border:1px solid #e5e7eb;background:#fff;color:#6b7280;display:flex;align-items:center;justify-content:center">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18 M6 6l12 12"></path></svg>
+                  </button>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+
+          <!-- Check-in -->
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #e5e7eb">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:6px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">3</span><span style="font-size:18px;font-weight:600">Vehicle check-in</span></div>
+              <span style="font-size:12px;color:#6b7280">Signed by customer at 09:20 AM</span>
+            </div>
+            <div style="padding:24px;display:flex;flex-wrap:wrap;gap:32px">
+              <div style="flex:0 0 220px">
+                <div style="font-size:13px;font-weight:500;color:#374151;margin-bottom:8px">Damage diagram</div>
+                <svg viewBox="0 0 220 340" width="220" height="340" role="img" aria-label="Top view of the vehicle with two damage markers">
+                  <rect x="40" y="20" width="140" height="300" rx="52" fill="#f9fafb" stroke="#9ca3af" stroke-width="2"></rect>
+                  <rect x="56" y="78" width="108" height="70" rx="12" fill="#e5e7eb" stroke="#9ca3af"></rect>
+                  <rect x="56" y="232" width="108" height="48" rx="12" fill="#e5e7eb" stroke="#9ca3af"></rect>
+                  <rect x="64" y="154" width="92" height="72" rx="10" fill="#ffffff" stroke="#d1d5db"></rect>
+                  <rect x="28" y="96" width="14" height="30" rx="6" fill="#d1d5db"></rect>
+                  <rect x="178" y="96" width="14" height="30" rx="6" fill="#d1d5db"></rect>
+                  <circle cx="64" cy="302" r="11" fill="#b91c1c"></circle>
+                  <text x="64" y="306" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">1</text>
+                  <circle cx="160" cy="62" r="11" fill="#b45309"></circle>
+                  <text x="160" y="66" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">2</text>
+                  <text x="110" y="14" text-anchor="middle" font-size="11" fill="#6b7280">Front</text>
+                  <text x="110" y="336" text-anchor="middle" font-size="11" fill="#6b7280">Rear</text>
+                </svg>
+              </div>
+              <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px">
+                <div>
+                  <div style="font-size:13px;font-weight:500;color:#374151;margin-bottom:8px">Marked damage</div>
+                  <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+                    <div style="display:flex;align-items:center;gap:10px"><span style="width:20px;height:20px;border-radius:9999px;background:#b91c1c;color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center">1</span>Scratch, rear left bumper</div>
+                    <div style="display:flex;align-items:center;gap:10px"><span style="width:20px;height:20px;border-radius:9999px;background:#b45309;color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center">2</span>Small dent, front right wing</div>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:13px;font-weight:500;color:#374151;margin-bottom:8px">Fuel level</div>
+                  <div style="display:flex;gap:4px;align-items:center">
+                    <sc-for list="{{fuel}}" as="s" hint-placeholder-count="8"><span style="width:28px;height:12px;border-radius:3px;background:{{s.c}}"></span></sc-for>
+                    <span style="margin-left:8px;font-size:13px;color:#4b5563">5/8</span>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:13px;font-weight:500;color:#374151;margin-bottom:8px">Items in vehicle</div>
+                  <div style="display:flex;flex-wrap:wrap;gap:8px">
+                    <sc-for list="{{checks}}" as="c" hint-placeholder-count="8">
+                      <span style="display:flex;align-items:center;gap:6px;font-size:13px;padding:5px 10px;border-radius:9999px;border:1px solid {{c.bd}};background:{{c.bg}};color:{{c.fg}};text-decoration:{{c.td}}">{{c.label}}</span>
+                    </sc-for>
+                  </div>
+                </div>
+              </div>
+              <div style="flex:1 1 220px;min-width:0">
+                <div style="font-size:13px;font-weight:500;color:#374151;margin-bottom:8px">Check-in photos</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,96px);gap:8px">
+                  <sc-for list="{{photos}}" as="p" hint-placeholder-count="6">
+                    <div style="width:96px;height:96px;border:1px dashed #d1d5db;border-radius:8px;background:#f9fafb;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#6b7280;font-size:11px;text-align:center">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{p.d}}"></path></svg>{{p.label}}
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Spare parts -->
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05);overflow:hidden">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #e5e7eb">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:6px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">4</span><span style="font-size:18px;font-weight:600">Spare parts</span></div>
+              <div style="display:flex;gap:8px">
+                <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px;font-weight:500">View stock</button>
+                <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px;font-weight:500">+ Add part</button>
+              </div>
+            </div>
+            <div style="overflow-x:auto">
+              <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:860px">
+                <thead>
+                  <tr style="background:#f9fafb;color:#4b5563;text-align:left;font-size:12px">
+                    <th style="padding:10px 12px 10px 24px;font-weight:500">#</th>
+                    <th style="padding:10px 12px;font-weight:500">Part no</th>
+                    <th style="padding:10px 12px;font-weight:500">Brand</th>
+                    <th style="padding:10px 12px;font-weight:500">Spare part</th>
+                    <th style="padding:10px 12px;font-weight:500;text-align:right">Qty</th>
+                    <th style="padding:10px 12px;font-weight:500;text-align:right">Cost</th>
+                    <th style="padding:10px 12px;font-weight:500;text-align:right">Markup</th>
+                    <th style="padding:10px 12px;font-weight:500;text-align:right">Selling</th>
+                    <th style="padding:10px 12px;font-weight:500;text-align:right">Total</th>
+                    <th style="padding:10px 12px;font-weight:500">Department</th>
+                    <th style="padding:10px 24px 10px 12px;font-weight:500"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <sc-for list="{{parts}}" as="p" hint-placeholder-count="4">
+                    <tr style="border-top:1px solid #e5e7eb">
+                      <td style="padding:10px 12px 10px 24px;color:#6b7280">{{p.n}}</td>
+                      <td style="padding:10px 12px;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px">{{p.no}}</td>
+                      <td style="padding:10px 12px">{{p.brand}}</td>
+                      <td style="padding:10px 12px;font-weight:500">{{p.name}}</td>
+                      <td style="padding:10px 12px;text-align:right">{{p.qty}}</td>
+                      <td style="padding:10px 12px;text-align:right;color:#4b5563">{{p.cost}}</td>
+                      <td style="padding:10px 12px;text-align:right;color:#4b5563">{{p.mk}}</td>
+                      <td style="padding:10px 12px;text-align:right">{{p.sell}}</td>
+                      <td style="padding:10px 12px;text-align:right;font-weight:600">{{p.total}}</td>
+                      <td style="padding:10px 12px"><span style="font-size:12px;padding:2px 8px;border-radius:9999px;background:#f3f4f6;color:#374151">{{p.dept}}</span></td>
+                      <td style="padding:10px 24px 10px 12px;text-align:right"><button aria-label="Remove part" style="width:28px;height:28px;border-radius:6px;border:1px solid #e5e7eb;background:#fff;color:#6b7280">x</button></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+            <div style="display:flex;justify-content:flex-end;gap:24px;padding:14px 24px;background:#f9fafb;border-top:1px solid #e5e7eb;font-size:14px"><span style="color:#4b5563">Total parts</span><span style="font-weight:600;min-width:100px;text-align:right">AED 877.00</span></div>
+          </section>
+
+          <!-- Purchase invoice -->
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #e5e7eb">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:6px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">5</span><span style="font-size:18px;font-weight:600">Purchase invoice for spare parts</span></div>
+              <button style="height:32px;padding:0 14px;border-radius:6px;border:0;background:#116f3c;color:#fff;font-size:13px;font-weight:500">Move to purchase</button>
+            </div>
+            <div style="padding:28px 24px;display:flex;align-items:center;gap:16px;color:#6b7280">
+              <div style="width:44px;height:44px;border-radius:8px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;color:#6b7280"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z M6 6 5 2H2 M9 20h.01 M18 20h.01"></path></svg></div>
+              <div><div style="font-weight:500;color:#111827">No purchase invoice yet</div><div style="font-size:13px">Parts not in stock can be bought from a supplier and linked to this job card.</div></div>
+            </div>
+          </section>
+
+          <!-- Labour -->
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05);overflow:hidden">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #e5e7eb">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:6px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">6</span><span style="font-size:18px;font-weight:600">Labour charges</span></div>
+              <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px;font-weight:500">+ Add service</button>
+            </div>
+            <div style="overflow-x:auto">
+              <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:760px">
+                <thead>
+                  <tr style="background:#f9fafb;color:#4b5563;text-align:left;font-size:12px">
+                    <th style="padding:10px 12px 10px 24px;font-weight:500">#</th>
+                    <th style="padding:10px 12px;font-weight:500">Code</th>
+                    <th style="padding:10px 12px;font-weight:500">Service</th>
+                    <th style="padding:10px 12px;font-weight:500;text-align:right">Time</th>
+                    <th style="padding:10px 12px;font-weight:500">Unit</th>
+                    <th style="padding:10px 12px;font-weight:500;text-align:right">Rate</th>
+                    <th style="padding:10px 12px;font-weight:500;text-align:right">Total</th>
+                    <th style="padding:10px 12px;font-weight:500">Department</th>
+                    <th style="padding:10px 24px 10px 12px;font-weight:500">Technician</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <sc-for list="{{labour}}" as="l" hint-placeholder-count="3">
+                    <tr style="border-top:1px solid #e5e7eb">
+                      <td style="padding:10px 12px 10px 24px;color:#6b7280">{{l.n}}</td>
+                      <td style="padding:10px 12px;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px">{{l.code}}</td>
+                      <td style="padding:10px 12px;font-weight:500">{{l.name}}</td>
+                      <td style="padding:10px 12px;text-align:right">{{l.time}}</td>
+                      <td style="padding:10px 12px;color:#4b5563">Hrs</td>
+                      <td style="padding:10px 12px;text-align:right;color:#4b5563">{{l.rate}}</td>
+                      <td style="padding:10px 12px;text-align:right;font-weight:600">{{l.total}}</td>
+                      <td style="padding:10px 12px"><span style="font-size:12px;padding:2px 8px;border-radius:9999px;background:#f3f4f6;color:#374151">{{l.dept}}</span></td>
+                      <td style="padding:10px 24px 10px 12px;color:#4b5563">{{l.tech}}</td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+            <div style="display:flex;justify-content:flex-end;gap:24px;padding:14px 24px;background:#f9fafb;border-top:1px solid #e5e7eb;font-size:14px"><span style="color:#4b5563">Total labour</span><span style="font-weight:600;min-width:100px;text-align:right">AED 470.00</span></div>
+          </section>
+
+          <!-- Delivery -->
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #e5e7eb">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:6px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">7</span><span style="font-size:18px;font-weight:600">Delivery and technician details</span></div>
+            </div>
+            <div style="padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px 20px">
+              <sc-for list="{{delivery}}" as="f" hint-placeholder-count="12">
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <label style="font-size:13px;font-weight:500;color:#374151">{{f.label}}</label>
+                  <sc-if value="{{f.isText}}" hint-placeholder-val="{{ true }}">
+                    <input value="{{f.value}}" readOnly="{{yes}}" style="background:{{f.bg}}">
+                  </sc-if>
+                  <sc-if value="{{f.isSelect}}" hint-placeholder-val="{{ false }}">
+                    <select><option>{{f.value}}</option></select>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;padding:16px 24px;border-top:1px solid #e5e7eb;background:#f9fafb;border-radius:0 0 8px 8px">
+              <button style="height:36px;padding:0 16px;border-radius:6px;border:0;background:#116f3c;color:#fff;font-size:14px;font-weight:500">Save job card</button>
+              <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Image upload</button>
+              <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Print work order</button>
+              <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #116f3c;background:#fff;color:#116f3c;font-size:14px;font-weight:500">Create invoice</button>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right rail -->
+        <aside style="flex:1 1 320px;max-width:380px;min-width:300px;display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="font-size:16px;font-weight:600;margin-bottom:14px">Estimate summary</div>
+            <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+              <sc-for list="{{summary}}" as="s" hint-placeholder-count="6">
+                <div style="display:flex;justify-content:space-between;color:#4b5563"><span>{{s.label}}</span><span style="color:#111827">{{s.value}}</span></div>
+              </sc-for>
+              <div style="display:flex;justify-content:space-between;border-top:1px solid #e5e7eb;padding-top:12px;font-size:18px;font-weight:600"><span>Total</span><span style="color:#116f3c">AED 1,414.35</span></div>
+              <div style="display:flex;justify-content:space-between;color:#4b5563"><span>Advance paid (cash)</span><span style="color:#111827">- AED 400.00</span></div>
+              <div style="display:flex;justify-content:space-between;background:#fffbeb;color:#b45309;padding:10px 12px;border-radius:6px;font-weight:600"><span>Balance due</span><span>AED 1,014.35</span></div>
+            </div>
+            <div style="font-size:12px;color:#6b7280;margin-top:12px">One thousand four hundred fourteen dirhams and thirty-five fils</div>
+          </div>
+
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="font-size:16px;font-weight:600;margin-bottom:14px">Progress</div>
+            <div style="display:flex;flex-direction:column;gap:0">
+              <sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+                <div style="display:flex;gap:12px">
+                  <div style="display:flex;flex-direction:column;align-items:center">
+                    <span style="width:20px;height:20px;border-radius:9999px;background:{{s.dot}};color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;border:2px solid {{s.ring}}">{{s.mark}}</span>
+                    <span style="width:2px;flex:1;min-height:28px;background:{{s.line}}"></span>
+                  </div>
+                  <div style="padding-bottom:12px">
+                    <div style="font-size:14px;font-weight:500;color:{{s.fg}}">{{s.label}}</div>
+                    <div style="font-size:12px;color:#6b7280">{{s.when}}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:44px;height:44px;border-radius:9999px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:600">PH</div>
+              <div style="flex:1">
+                <div style="font-size:16px;font-weight:600">Peter Hansen</div>
+                <div style="font-size:13px;color:#6b7280">Customer since Mar 2022</div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px">
+              <div style="background:#f9fafb;border-radius:6px;padding:10px"><div style="font-size:11px;color:#6b7280">Visits</div><div style="font-weight:600;font-size:16px">7</div></div>
+              <div style="background:#f9fafb;border-radius:6px;padding:10px"><div style="font-size:11px;color:#6b7280">Lifetime</div><div style="font-weight:600;font-size:16px">11.2k</div></div>
+              <div style="background:#f9fafb;border-radius:6px;padding:10px"><div style="font-size:11px;color:#6b7280">Dues</div><div style="font-weight:600;font-size:16px">0.00</div></div>
+            </div>
+            <div style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#6b7280;margin:16px 0 8px">Previous services</div>
+            <sc-for list="{{history}}" as="h" hint-placeholder-count="3">
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid #f3f4f6;font-size:13px"><span><span style="font-family:'Geist Mono',ui-monospace,monospace">{{h.no}}</span> <span style="color:#6b7280">{{h.what}}</span></span><span style="font-weight:500">{{h.amt}}</span></div>
+            </sc-for>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3120}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const I = {
+      dash: 'M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z',
+      wrench: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z',
+      file: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M8 13h8 M8 17h8',
+      receipt: 'M4 2v20l3-2 2 2 3-2 3 2 2-2 3 2V2l-3 2-2-2-3 2-3-2-2 2z M8 8h8 M8 12h8',
+      pack: 'M16.5 9.4 7.5 4.2 M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z M3.3 7 12 12l8.7-5 M12 22V12',
+      users: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.9 M16 3.1a4 4 0 0 1 0 7.8',
+      chart: 'M3 3v18h18 M7 16v-5 M12 16V7 M17 16v-9',
+      car: 'M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11 M3 11h18v6a1 1 0 0 1-1 1h-2v1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H9v1a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-1H4a1 1 0 0 1-1-1z M7 15h.01 M17 15h.01',
+      shield: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+      db: 'M12 8c4.4 0 8-1.3 8-3s-3.6-3-8-3-8 1.3-8 3 3.6 3 8 3z M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5 M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3',
+      wallet: 'M20 7H5a2 2 0 0 1 0-4h13v4 M3 5v14a2 2 0 0 0 2 2h15v-4 M17 12h5v4h-5a2 2 0 0 1 0-4z',
+      brief: 'M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16 M3 7h18a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a1 1 0 0 1 1-1z',
+      cart: 'M6 6h15l-1.5 9h-12z M6 6 5 2H2 M9 20h.01 M18 20h.01',
+      cam: 'M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z M12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8',
+      plus: 'M12 5v14 M5 12h14'
+    };
+    const item = (label, d, active, count) => ({ isItem: true, isHeader: false, label, d, bg: active ? '#fafafa' : 'transparent', fg: active ? '#000000' : '#e5e5e5', weight: active ? 500 : 400, hasCount: !!count, count: count || '' });
+    const head = (label) => ({ isHeader: true, isItem: false, label });
+    const nav = [
+      head('Workshop'), item('Dashboard', I.dash, false), item('Job cards', I.wrench, true, '14'), item('Estimations', I.file, false), item('Billing job cards', I.receipt, false, '3'),
+      head('Operations'), item('Customers and vehicles', I.car, false), item('Inventory', I.pack, false), item('Purchases', I.cart, false), item('Advisors', I.users, false),
+      head('Finance'), item('Invoices', I.receipt, false), item('E-invoicing', I.receipt, false), item('Accounts', I.wallet, false), item('Reports', I.chart, false),
+      head('Administration'), item('HRMS', I.brief, false), item('User privilege', I.shield, false), item('Backup', I.db, false)
+    ];
+    const t = (label, value, req) => ({ label, value, req: req ? ' *' : '', isText: true, isSelect: false, bg: '#ffffff', font: 'inherit' });
+    const ro = (label, value) => ({ label, value, req: '', isText: true, isSelect: false, bg: '#f3f4f6', font: "'Geist Mono',ui-monospace,monospace" });
+    const s = (label, value, req) => ({ label, value, req: req ? ' *' : '', isText: false, isSelect: true, bg: '#ffffff', font: 'inherit' });
+    const fields = [
+      s('Branch name', 'Dubai - Al Quoz', true), t('Job card date', '18/10/2026'), t('Time', '09:12 AM'),
+      ro('Job card no', 'JC1-0042'), t('Estimation no', 'EST-0118'), t('Cust. contact no', '050 890 0000', true),
+      t('Cust. name', 'Peter Hansen', true), t('Email', 'peter.hansen@example.com'), s('Emirate', 'Dubai'),
+      t('Plate no', 'Q 56081', true), s('Vehicle brand', 'Audi', true), s('Vehicle model', 'A7', true),
+      s('Vehicle type', 'Sedan'), t('Vehicle year', '2019'), t('Vehicle VIN no', 'WAUZZZ4G7KN012345'),
+      t("KM's in", '48,250'), s('Job category', 'Regular'), s('Customer approval', 'Yes'),
+      t('Due date out', '19/10/2026'), t('Next service reminder date', '18/04/2027'), s('Status', 'In progress')
+    ];
+    const desc = [
+      { n: '1', text: 'Engine oil and filter change, 5W-30' },
+      { n: '2', text: 'Front brake noise: inspect pads and discs, replace if worn' },
+      { n: '3', text: 'AC cooling weak: check gas level and cabin filter' },
+      { n: '4', text: '' }, { n: '5', text: '' }
+    ];
+    const fuel = [1,1,1,1,1,0,0,0].map((v) => ({ c: v ? '#116f3c' : '#e5e7eb' }));
+    const ck = (label, on) => ({ label, td: on ? 'none' : 'line-through',bg: on ? '#ecf8f0' : '#f9fafb', bd: on ? '#cdeedb' : '#e5e7eb', fg: on ? '#116f3c' : '#4b5563' });
+    const checks = [ck('Spare wheel', true), ck('Jack and tools', true), ck('Floor mats', true), ck('Head unit', true), ck('Valuables removed', true), ck('Warning lights on', false), ck('Service book', false), ck('Child seat', false)];
+    const photos = [
+      { label: 'Front', d: I.cam }, { label: 'Rear', d: I.cam }, { label: 'Left side', d: I.cam },
+      { label: 'Right side', d: I.cam }, { label: 'Odometer', d: I.cam }, { label: 'Add photo', d: I.plus }
+    ];
+    const pt = (n, no, brand, name, qty, cost, mk, sell, total) => ({ n, no, brand, name, qty, cost, mk, sell, total, dept: 'Mechanical' });
+    const parts = [
+      pt('1', '1001', 'Mann', '5W-20 oil filter', '1', '100.00', '150%', '250.00', '250.00'),
+      pt('2', '2090', 'Castrol', 'Engine oil 5W-30, 5 L', '1', '160.00', '40%', '224.00', '224.00'),
+      pt('3', '4417', 'Brembo', 'Front brake pads, Audi A7', '1', '310.00', '30%', '403.00', '403.00')
+    ];
+    const lb = (n, code, name, time, rate, total, tech) => ({ n, code, name, time, rate, total, tech, dept: 'Mechanical' });
+    const labour = [
+      lb('1', 'LB-010', 'Oil and filter change', '1.0', '120.00', '120.00', 'Imran K.'),
+      lb('2', 'LB-022', 'Brake inspection and pad replacement', '1.5', '200.00', '300.00', 'Imran K.'),
+      lb('3', 'LB-031', 'AC performance check', '0.5', '100.00', '50.00', 'Rizwan A.')
+    ];
+    const dt = (label, value) => ({ label, value, isText: true, isSelect: false, bg: '#ffffff' });
+    const dr = (label, value) => ({ label, value, isText: true, isSelect: false, bg: '#f3f4f6' });
+    const ds = (label, value) => ({ label, value, isText: false, isSelect: true, bg: '#ffffff' });
+    const delivery = [
+      dr('Advisor', 'Hamza Ali'), ds('Supervisor', 'Sunil P.'), ds('Technician', 'Imran K.'),
+      dt('Job completion', '19/10/2026'), dt('Estimated completion time', '04:30 PM'), dr('Total amount', 'AED 1,414.35'),
+      dt('Advance amount', '400.00'), dr('VAT amount', 'AED 67.35'), dt('Brought by', 'Peter Hansen'),
+      dr('Approved date', '18/10/2026'), dr('Approved time', '09:35 AM'), dt('Revised date', ''),
+      ds('Print type', 'Normal'), dt('Remarks', 'Call customer before delivery')
+    ];
+    const summary = [
+      { label: 'Spare parts', value: 'AED 877.00' }, { label: 'Labour', value: 'AED 470.00' },
+      { label: 'Discount', value: '- AED 0.00' }, { label: 'Subtotal', value: 'AED 1,347.00' }, { label: 'VAT 5%', value: 'AED 67.35' }
+    ];
+    const step = (label, when, state) => {
+      const done = state === 'done', cur = state === 'cur';
+      return { label, when, mark: '', dot: done ? '#116f3c' : (cur ? '#2563eb' : '#ffffff'), ring: done ? '#116f3c' : (cur ? '#2563eb' : '#d1d5db'), line: done ? '#116f3c' : '#e5e7eb', fg: state === 'todo' ? '#6b7280' : '#111827' };
+    };
+    const steps = [
+      step('Job card created', '18 Oct, 09:12 AM, Hamza Ali', 'done'),
+      step('Customer approved estimate', '18 Oct, 09:35 AM, by phone', 'done'),
+      step('In progress', 'Started 18 Oct, 10:05 AM, Bay 1', 'cur'),
+      step('Ready for delivery', 'Estimated 19 Oct, 04:30 PM', 'todo'),
+      step('Delivered and invoiced', 'Not yet', 'todo')
+    ];
+    const history = [
+      { no: 'JC1-0021', what: 'Full service', amt: '1,280.00' },
+      { no: 'JC1-0009', what: 'Tyres and alignment', amt: '3,150.00' },
+      { no: 'JC1-0002', what: 'Brake fluid flush', amt: '420.00' }
+    ];
+    return { yes: true, nav, fields, desc, fuel, checks, photos, parts, labour, delivery, summary, steps, history };
+  }
+}
+</script>
+</body>
+</html>

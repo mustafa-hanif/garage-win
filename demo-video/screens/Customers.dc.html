@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Garage Pro customers and vehicles</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0;font-family:Geist,ui-sans-serif,system-ui,sans-serif;color:#111827;background:#f9fafb;font-size:14px}
+a{color:#116f3c;text-decoration:none}
+button,input,select{font-family:inherit}
+input,select{height:36px;width:100%;box-sizing:border-box;padding:0 12px;border:1px solid #d1d5db;border-radius:6px;background:#fff;color:#111827;font-size:14px}
+</style>
+</helmet>
+<div style="display:flex;min-height:100vh;width:100%;background:#f9fafb">
+
+  <aside style="flex:0 0 248px;background:#000;color:#f5f5f5;padding:20px 12px;box-sizing:border-box;display:flex;flex-direction:column;gap:2px">
+    <div style="display:flex;align-items:center;gap:10px;padding:4px 10px 20px">
+      <div style="width:34px;height:34px;border-radius:8px;background:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff">GP</div>
+      <div>
+        <div style="font-weight:600;font-size:16px;line-height:18px">Garage Pro</div>
+        <div style="font-size:11px;color:#9ca3af">Workshop management</div>
+      </div>
+    </div>
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="14">
+      <div>
+        <sc-if value="{{n.isHeader}}" hint-placeholder-val="{{ false }}">
+          <div style="padding:16px 12px 6px;font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#9ca3af">{{n.label}}</div>
+        </sc-if>
+        <sc-if value="{{n.isItem}}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:6px;font-size:14px;background:{{n.bg}};color:{{n.fg}};font-weight:{{n.weight}}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{n.d}}"></path></svg>
+            <span style="flex:1">{{n.label}}</span>
+            <sc-if value="{{n.hasCount}}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:11px;font-weight:600;padding:1px 7px;border-radius:9999px;background:#116f3c;color:#fff">{{n.count}}</span>
+            </sc-if>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+    <div style="flex:1"></div>
+    <div style="display:flex;align-items:center;gap:10px;padding:12px;border-top:1px solid #292a2e;margin-top:12px">
+      <div style="width:34px;height:34px;border-radius:9999px;background:#2b2d31;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">HA</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:500">Hamza Ali</div>
+        <div style="font-size:12px;color:#9ca3af">Super admin</div>
+      </div>
+    </div>
+  </aside>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="background:#fff;border-bottom:1px solid #e5e7eb;padding:0 32px;min-height:64px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+      <div style="display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border:1px solid #d1d5db;border-radius:6px;min-width:260px;color:#9ca3af">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16 M21 21l-4.3-4.3"></path></svg>
+        <span style="font-size:14px">Search plate, mobile, job card</span>
+      </div>
+      <div style="flex:1"></div>
+      <button style="display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Branch: Dubai - Al Quoz</button>
+      <button aria-label="Notifications" style="width:36px;height:36px;border-radius:6px;border:1px solid #e5e7eb;background:#fff;color:#374151;display:flex;align-items:center;justify-content:center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9 M10.3 21a1.9 1.9 0 0 0 3.4 0"></path></svg>
+      </button>
+    </header>
+
+    <main style="padding:28px 32px 40px;display:flex;flex-direction:column;gap:20px;box-sizing:border-box">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px">
+        <div>
+          <h1 style="margin:0;font-size:30px;line-height:36px;font-weight:700">Customers and vehicles</h1>
+          <div style="font-size:14px;color:#6b7280;margin-top:4px">Every customer, their cars, service history and balances</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Import from Excel</button>
+          <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Export</button>
+          <button style="height:36px;padding:0 16px;border-radius:6px;border:0;background:#116f3c;color:#fff;font-size:14px;font-weight:500">+ New customer</button>
+        </div>
+      </div>
+
+      <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+        <sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:16px 18px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="font-size:13px;color:#4b5563">{{s.label}}</div>
+            <div style="font-size:26px;font-weight:700;margin-top:4px">{{s.value}}</div>
+            <div style="font-size:12px;color:#6b7280">{{s.sub}}</div>
+          </div>
+        </sc-for>
+      </section>
+
+      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+        <!-- List -->
+        <section style="flex:1 1 640px;min-width:0;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05);overflow:hidden">
+          <div style="display:flex;flex-wrap:wrap;gap:12px;padding:16px 20px;border-bottom:1px solid #e5e7eb;align-items:center">
+            <div style="flex:1 1 220px;display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border:1px solid #d1d5db;border-radius:6px;color:#9ca3af;font-size:14px">Search name, mobile or plate</div>
+            <div style="flex:0 0 160px"><select><option>All customers</option></select></div>
+            <div style="flex:0 0 150px"><select><option>Any brand</option></select></div>
+            <div style="flex:0 0 150px"><select><option>Sort: last visit</option></select></div>
+          </div>
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:700px">
+              <thead>
+                <tr style="background:#f9fafb;color:#4b5563;text-align:left;font-size:12px">
+                  <th style="padding:11px 12px 11px 20px;font-weight:500">Customer</th>
+                  <th style="padding:11px 12px;font-weight:500">Mobile</th>
+                  <th style="padding:11px 12px;font-weight:500;text-align:right">Vehicles</th>
+                  <th style="padding:11px 12px;font-weight:500">Last visit</th>
+                  <th style="padding:11px 12px;font-weight:500;text-align:right">Lifetime</th>
+                  <th style="padding:11px 20px 11px 12px;font-weight:500;text-align:right">Dues</th>
+                </tr>
+              </thead>
+              <tbody>
+                <sc-for list="{{customers}}" as="c" hint-placeholder-count="10">
+                  <tr style="border-top:1px solid #e5e7eb;background:{{c.bg}}">
+                    <td style="padding:12px 12px 12px 20px;border-left:3px solid {{c.bar}}">
+                      <div style="display:flex;align-items:center;gap:12px">
+                        <span style="width:34px;height:34px;border-radius:9999px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">{{c.init}}</span>
+                        <div><div style="font-weight:500">{{c.name}}</div><div style="font-size:12px;color:#6b7280">{{c.tag}}</div></div>
+                      </div>
+                    </td>
+                    <td style="padding:12px 12px;color:#4b5563">{{c.mobile}}</td>
+                    <td style="padding:12px 12px;text-align:right">{{c.cars}}</td>
+                    <td style="padding:12px 12px;color:#4b5563">{{c.last}}</td>
+                    <td style="padding:12px 12px;text-align:right;font-weight:500">{{c.life}}</td>
+                    <td style="padding:12px 20px 12px 12px;text-align:right;font-weight:500;color:{{c.dueFg}}">{{c.due}}</td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-top:1px solid #e5e7eb;background:#f9fafb;font-size:13px;color:#4b5563">
+            <span>Showing 1 to 10 of 412 customers</span>
+            <div style="display:flex;gap:6px">
+              <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#9ca3af;font-size:13px">Previous</button>
+              <button style="height:32px;width:32px;border-radius:6px;border:0;background:#116f3c;color:#fff;font-size:13px">1</button>
+              <button style="height:32px;width:32px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px">2</button>
+              <button style="height:32px;width:32px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px">3</button>
+              <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px">Next</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Detail -->
+        <aside style="flex:1 1 420px;max-width:520px;min-width:360px;display:flex;flex-direction:column;gap:16px">
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:24px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="display:flex;gap:16px;align-items:flex-start">
+              <div style="width:56px;height:56px;border-radius:9999px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700">PH</div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-size:20px;font-weight:600">Peter Hansen</span><span style="font-size:12px;font-weight:500;padding:2px 10px;border-radius:9999px;background:#ecf8f0;color:#116f3c">Regular</span></div>
+                <div style="font-size:13px;color:#6b7280;margin-top:2px">Customer since March 2022 · Dubai</div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;margin-top:18px;font-size:14px">
+              <div><div style="font-size:12px;color:#6b7280">Mobile</div>050 890 0000</div>
+              <div><div style="font-size:12px;color:#6b7280">Email</div>peter.hansen@example.com</div>
+              <div><div style="font-size:12px;color:#6b7280">Customer TRN</div>Not provided</div>
+              <div><div style="font-size:12px;color:#6b7280">Preferred contact</div>WhatsApp</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px">
+              <div style="background:#f9fafb;border-radius:6px;padding:12px"><div style="font-size:12px;color:#6b7280">Visits</div><div style="font-size:18px;font-weight:600">7</div></div>
+              <div style="background:#f9fafb;border-radius:6px;padding:12px"><div style="font-size:12px;color:#6b7280">Lifetime</div><div style="font-size:18px;font-weight:600">11,240</div></div>
+              <div style="background:#f9fafb;border-radius:6px;padding:12px"><div style="font-size:12px;color:#6b7280">Open balance</div><div style="font-size:18px;font-weight:600;color:#b45309">490.20</div></div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap">
+              <button style="height:36px;padding:0 14px;border-radius:6px;border:0;background:#116f3c;color:#fff;font-size:14px;font-weight:500">New job card</button>
+              <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Send reminder</button>
+              <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Statement</button>
+            </div>
+          </div>
+
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #e5e7eb"><span style="font-size:16px;font-weight:600">Vehicles</span><a href="#" style="font-size:13px;font-weight:500">+ Add vehicle</a></div>
+            <sc-for list="{{cars}}" as="v" hint-placeholder-count="2">
+              <div style="padding:16px 20px;border-top:1px solid #f3f4f6">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+                  <div>
+                    <div style="font-weight:600;font-size:15px">{{v.name}}</div>
+                    <div style="font-size:12px;color:#6b7280;font-family:'Geist Mono',ui-monospace,monospace;margin-top:2px">{{v.plate}} · VIN {{v.vin}}</div>
+                  </div>
+                  <span style="font-size:12px;font-weight:500;padding:2px 10px;border-radius:9999px;background:{{v.bg}};color:{{v.fg}};white-space:nowrap">{{v.state}}</span>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;font-size:13px">
+                  <div><div style="font-size:12px;color:#6b7280">Odometer</div>{{v.km}}</div>
+                  <div><div style="font-size:12px;color:#6b7280">Last service</div>{{v.last}}</div>
+                  <div><div style="font-size:12px;color:#6b7280">Next due</div>{{v.next}}</div>
+                </div>
+                <div style="margin-top:12px;height:6px;border-radius:9999px;background:#f3f4f6"><div style="height:6px;border-radius:9999px;background:{{v.barc}};width:{{v.pct}}%"></div></div>
+                <div style="font-size:12px;color:#6b7280;margin-top:4px">{{v.pctNote}}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="padding:16px 20px;border-bottom:1px solid #e5e7eb;font-size:16px;font-weight:600">Service history</div>
+            <div style="padding:8px 20px 8px">
+              <sc-for list="{{history}}" as="h" hint-placeholder-count="5">
+                <div style="display:flex;gap:12px">
+                  <div style="display:flex;flex-direction:column;align-items:center"><span style="width:10px;height:10px;border-radius:9999px;background:{{h.dot}};margin-top:6px"></span><span style="width:2px;flex:1;background:#e5e7eb;min-height:30px"></span></div>
+                  <div style="flex:1;padding:0 0 14px">
+                    <div style="display:flex;justify-content:space-between;gap:8px"><span style="font-weight:500;font-size:14px">{{h.what}}</span><span style="font-weight:600;font-size:14px">{{h.amt}}</span></div>
+                    <div style="font-size:12px;color:#6b7280"><span style="font-family:'Geist Mono',ui-monospace,monospace">{{h.no}}</span> · {{h.car}} · {{h.date}}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const I = {
+      dash: 'M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z',
+      wrench: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z',
+      file: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M8 13h8 M8 17h8',
+      receipt: 'M4 2v20l3-2 2 2 3-2 3 2 2-2 3 2V2l-3 2-2-2-3 2-3-2-2 2z M8 8h8 M8 12h8',
+      pack: 'M16.5 9.4 7.5 4.2 M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z M3.3 7 12 12l8.7-5 M12 22V12',
+      users: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.9 M16 3.1a4 4 0 0 1 0 7.8',
+      chart: 'M3 3v18h18 M7 16v-5 M12 16V7 M17 16v-9',
+      car: 'M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11 M3 11h18v6a1 1 0 0 1-1 1h-2v1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H9v1a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-1H4a1 1 0 0 1-1-1z M7 15h.01 M17 15h.01',
+      shield: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+      db: 'M12 8c4.4 0 8-1.3 8-3s-3.6-3-8-3-8 1.3-8 3 3.6 3 8 3z M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5 M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3',
+      wallet: 'M20 7H5a2 2 0 0 1 0-4h13v4 M3 5v14a2 2 0 0 0 2 2h15v-4 M17 12h5v4h-5a2 2 0 0 1 0-4z',
+      brief: 'M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16 M3 7h18a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a1 1 0 0 1 1-1z',
+      cart: 'M6 6h15l-1.5 9h-12z M6 6 5 2H2 M9 20h.01 M18 20h.01'
+    };
+    const item = (label, d, active, count) => ({ isItem: true, isHeader: false, label, d, bg: active ? '#fafafa' : 'transparent', fg: active ? '#000000' : '#e5e5e5', weight: active ? 500 : 400, hasCount: !!count, count: count || '' });
+    const head = (label) => ({ isHeader: true, isItem: false, label });
+    const nav = [
+      head('Workshop'), item('Dashboard', I.dash, false), item('Job cards', I.wrench, false, '14'), item('Estimations', I.file, false), item('Billing job cards', I.receipt, false, '3'),
+      head('Operations'), item('Customers and vehicles', I.car, true), item('Inventory', I.pack, false), item('Purchases', I.cart, false), item('Advisors', I.users, false),
+      head('Finance'), item('Invoices', I.receipt, false), item('E-invoicing', I.receipt, false), item('Accounts', I.wallet, false), item('Reports', I.chart, false),
+      head('Administration'), item('HRMS', I.brief, false), item('User privilege', I.shield, false), item('Backup', I.db, false)
+    ];
+    const stats = [
+      { label: 'Customers', value: '412', sub: '+18 this month' }, { label: 'Vehicles', value: '538', sub: 'Audi 142 · Porsche 61 · BMW 58' },
+      { label: 'Visited in last 30 days', value: '64', sub: '15.5% of customers' }, { label: 'Customers with dues', value: '3', sub: 'AED 4,000.00 outstanding' }
+    ];
+    const fmt = (v) => v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const cu = (name, tag, mobile, cars, last, life, due, sel) => ({ name, tag, mobile, cars, last, life: fmt(life), due: due ? fmt(due) : '0.00', dueFg: due ? '#b45309' : '#6b7280', init: name.split(' ').map((w) => w[0]).join('').slice(0, 2), bg: sel ? '#f4fbf7' : '#ffffff', bar: sel ? '#116f3c' : 'transparent' });
+    const customers = [
+      cu('Peter Hansen', 'Regular · Audi A7', '050 890 0000', 1, '18 Oct 2026', 11240, 490.2, true),
+      cu('Ali Rashid', 'VIP · Porsche Cayenne S', '055 431 4413', 2, '18 Oct 2026', 38420, 0),
+      cu('Hammad Iqbal', 'New · Audi A6', '056 789 1235', 1, '17 Oct 2026', 4110, 0),
+      cu('Vikas Sharma', 'Regular · Audi A4', '056 954 3789', 2, '17 Oct 2026', 6280, 0),
+      cu('Fatima Al Zaabi', 'Regular · Audi A5', '052 220 6611', 1, '16 Oct 2026', 9860, 0),
+      cu('Omar Khalid', 'VIP · Porsche 911', '050 117 5502', 3, '16 Oct 2026', 52900, 2300),
+      cu('Karim Nasser', 'Regular · BMW X5', '050 220 9981', 1, '12 Oct 2026', 7340, 0),
+      cu('Maryam Al Hosani', 'Regular · Audi Q7', '050 331 8870', 2, '09 Oct 2026', 15720, 1209.8),
+      cu('Sara Ahmed', 'New · Mercedes C 200', '055 118 4472', 1, '06 Oct 2026', 2150, 0),
+      cu('Anish Menon', 'Regular · Audi A7', '056 954 7867', 1, '04 Oct 2026', 3860, 0)
+    ];
+    const cars = [
+      { name: 'Audi A7 2019, Sedan', plate: 'Q 56081', vin: 'WAUZZZ4G7KN012345', state: 'In workshop', bg: '#eff6ff', fg: '#1d4ed8', km: '48,262 km', last: '18 Oct 2026', next: '18 Apr 2027', pct: 12, barc: '#116f3c', pctNote: 'Service interval 12% used (1,200 of 10,000 km)' },
+      { name: 'Audi Q3 2016, SUV', plate: 'P 20418', vin: 'WAUZZZ8U5GR005512', state: 'Service due', bg: '#fffbeb', fg: '#b45309', km: '96,540 km', last: '02 Mar 2026', next: 'Overdue', pct: 100, barc: '#b45309', pctNote: 'Service interval exceeded by 640 km' }
+    ];
+    const hs = (no, what, car, date, amt, dot) => ({ no, what, car, date, amt, dot });
+    const history = [
+      hs('JC1-0042', 'Oil change, brake pads, AC check', 'Audi A7', '18 Oct 2026', 'AED 1,390.20', '#2563eb'),
+      hs('JC1-0021', 'Full service 45,000 km', 'Audi A7', '14 Jun 2026', 'AED 1,280.00', '#116f3c'),
+      hs('JC1-0017', 'Tyres and wheel alignment', 'Audi A7', '02 Mar 2026', 'AED 3,150.00', '#116f3c'),
+      hs('JC1-0009', 'Annual service and inspection', 'Audi Q3', '02 Mar 2026', 'AED 2,160.00', '#116f3c'),
+      hs('JC1-0002', 'Brake fluid flush', 'Audi A7', '11 Nov 2025', 'AED 420.00', '#116f3c')
+    ];
+    return { nav, stats, customers, cars, history };
+  }
+}
+</script>
+</body>
+</html>

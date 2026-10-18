@@ -1,0 +1,162 @@
+{
+ "Intake": {
+  "Complaint and check-in": {
+   "x": 280,
+   "y": 175,
+   "w": 1128,
+   "h": 78
+  },
+  "Customer signature": {
+   "x": 280,
+   "y": 451,
+   "w": 752,
+   "h": 1265
+  },
+  "Suggested services and estimate": {
+   "x": 280,
+   "y": 451,
+   "w": 752,
+   "h": 1265
+  },
+  "Intake summary": {
+   "x": 1056,
+   "y": 277,
+   "w": 352,
+   "h": 346
+  }
+ },
+ "Estimation": {
+  "Estimate options": {
+   "x": 280,
+   "y": 377,
+   "w": 752,
+   "h": 310
+  },
+  "Send to customer": {
+   "x": 1056,
+   "y": 450,
+   "w": 352,
+   "h": 348
+  },
+  "Recommended option, line items": {
+   "x": 280,
+   "y": 707,
+   "w": 752,
+   "h": 479
+  }
+ },
+ "JobCard": {
+  "Vehicle and customer details": {
+   "x": 280,
+   "y": 175,
+   "w": 752,
+   "h": 731
+  },
+  "Vehicle check-in": {
+   "x": 280,
+   "y": 1282,
+   "w": 752,
+   "h": 635
+  },
+  "Spare parts": {
+   "x": 280,
+   "y": 1937,
+   "w": 752,
+   "h": 321
+  },
+  "Estimate summary": {
+   "x": 1056,
+   "y": 175,
+   "w": 352,
+   "h": 373
+  }
+ },
+ "Main": {
+  "Workshop bays, live": {
+   "x": 280,
+   "y": 1513,
+   "w": 1128,
+   "h": 380
+  },
+  "Revenue and profit": {
+   "x": 280,
+   "y": 489,
+   "w": 698,
+   "h": 335
+  },
+  "Pending job cards": {
+   "x": 280,
+   "y": 848,
+   "w": 742,
+   "h": 641
+  },
+  "Dashboard": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 1933
+  }
+ },
+ "Inventory": {
+  "Stock level": {
+   "x": 280,
+   "y": 296,
+   "w": 1128,
+   "h": 902
+  },
+  "Stock movements": {
+   "x": 661,
+   "y": 1218,
+   "w": 365,
+   "h": 398
+  }
+ },
+ "Purchases": {
+  "Three-way match": {
+   "x": 1076,
+   "y": 577,
+   "w": 332,
+   "h": 337
+  },
+  "Items purchased": {
+   "x": 280,
+   "y": 645,
+   "w": 772,
+   "h": 553
+  }
+ },
+ "Billing": {
+  "Spare parts and labour charges": {
+   "x": 280,
+   "y": 753,
+   "w": 772,
+   "h": 668
+  },
+  "Tax invoice preview": {
+   "x": 1076,
+   "y": 175,
+   "w": 332,
+   "h": 463
+  }
+ },
+ "EInvoicing": {
+  "How an invoice travels": {
+   "x": 280,
+   "y": 265,
+   "w": 1128,
+   "h": 244
+  },
+  "E-invoice register": {
+   "x": 280,
+   "y": 662,
+   "w": 1128,
+   "h": 620
+  },
+  "Validation checks": {
+   "x": 661,
+   "y": 1302,
+   "w": 365,
+   "h": 340
+  }
+ }
+}

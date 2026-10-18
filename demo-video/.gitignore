@@ -1,0 +1,6 @@
+node_modules
+out
+.env
+public/voice/*.mp3
+screens/support.js
+out/check

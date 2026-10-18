@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Garage Pro estimation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0;font-family:Geist,ui-sans-serif,system-ui,sans-serif;color:#111827;background:#f9fafb;font-size:14px}
+a{color:#116f3c;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+input,select{height:36px;width:100%;box-sizing:border-box;padding:0 12px;border:1px solid #d1d5db;border-radius:6px;background:#fff;color:#111827;font-size:14px}
+textarea{width:100%;box-sizing:border-box;padding:8px 12px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;resize:none}
+</style>
+</helmet>
+<div style="display:flex;min-height:100vh;width:100%;background:#f9fafb">
+
+  <aside style="flex:0 0 248px;background:#000;color:#f5f5f5;padding:20px 12px;box-sizing:border-box;display:flex;flex-direction:column;gap:2px">
+    <div style="display:flex;align-items:center;gap:10px;padding:4px 10px 20px">
+      <div style="width:34px;height:34px;border-radius:8px;background:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff">GP</div>
+      <div>
+        <div style="font-weight:600;font-size:16px;line-height:18px">Garage Pro</div>
+        <div style="font-size:11px;color:#9ca3af">Workshop management</div>
+      </div>
+    </div>
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="14">
+      <div>
+        <sc-if value="{{n.isHeader}}" hint-placeholder-val="{{ false }}">
+          <div style="padding:16px 12px 6px;font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#9ca3af">{{n.label}}</div>
+        </sc-if>
+        <sc-if value="{{n.isItem}}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:6px;font-size:14px;background:{{n.bg}};color:{{n.fg}};font-weight:{{n.weight}}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{n.d}}"></path></svg>
+            <span style="flex:1">{{n.label}}</span>
+            <sc-if value="{{n.hasCount}}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:11px;font-weight:600;padding:1px 7px;border-radius:9999px;background:#116f3c;color:#fff">{{n.count}}</span>
+            </sc-if>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+    <div style="flex:1"></div>
+    <div style="display:flex;align-items:center;gap:10px;padding:12px;border-top:1px solid #292a2e;margin-top:12px">
+      <div style="width:34px;height:34px;border-radius:9999px;background:#2b2d31;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">HA</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:500">Hamza Ali</div>
+        <div style="font-size:12px;color:#9ca3af">Super admin</div>
+      </div>
+    </div>
+  </aside>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="background:#fff;border-bottom:1px solid #e5e7eb;padding:0 32px;min-height:64px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+      <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280;flex:1">
+        <a href="#">Estimations</a>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+        <span style="color:#111827;font-weight:500">EST-0118</span>
+      </div>
+      <button style="display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Branch: Dubai - Al Quoz</button>
+      <button aria-label="Notifications" style="width:36px;height:36px;border-radius:6px;border:1px solid #e5e7eb;background:#fff;color:#374151;display:flex;align-items:center;justify-content:center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9 M10.3 21a1.9 1.9 0 0 0 3.4 0"></path></svg>
+      </button>
+    </header>
+
+    <main style="padding:28px 32px 40px;display:flex;flex-direction:column;gap:24px;box-sizing:border-box">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:16px">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <h1 style="margin:0;font-size:30px;line-height:36px;font-weight:700">Estimation</h1>
+            <span style="font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;font-weight:500;padding:3px 10px;border-radius:6px;background:#f3f4f6;color:#374151">EST-0118</span>
+            <span style="font-size:12px;font-weight:500;padding:3px 10px;border-radius:9999px;background:#fffbeb;color:#b45309">Sent, awaiting approval</span>
+          </div>
+          <div style="font-size:14px;color:#6b7280;margin-top:4px">Created 18 Oct 2026, 09:25 AM by Hamza Ali · Valid until 21 Oct 2026</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Save changes</button>
+          <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Preview PDF</button>
+          <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #116f3c;background:#fff;color:#116f3c;font-size:14px;font-weight:500">Convert to job card</button>
+          <button style="height:36px;padding:0 16px;border-radius:6px;border:0;background:#116f3c;color:#fff;font-size:14px;font-weight:500">Send again</button>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+        <div style="flex:1 1 720px;min-width:0;display:flex;flex-direction:column;gap:20px">
+
+          <!-- Customer and vehicle -->
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px 24px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05);display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px 24px">
+            <sc-for list="{{head}}" as="h" hint-placeholder-count="8">
+              <div><div style="font-size:12px;color:#6b7280">{{h.label}}</div><div style="font-weight:500;margin-top:2px">{{h.value}}</div></div>
+            </sc-for>
+          </section>
+
+          <!-- Options -->
+          <section>
+            <div style="font-size:18px;font-weight:600;margin-bottom:4px">Estimate options</div>
+            <div style="font-size:13px;color:#6b7280;margin-bottom:12px">Offer three levels so the customer can choose. The selected option is the one used for the job card.</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+              <sc-for list="{{options}}" as="o" hint-placeholder-count="3">
+                <div style="background:#fff;border:{{o.bd}};border-radius:8px;padding:20px;box-shadow:{{o.sh}};position:relative">
+                  <sc-if value="{{o.picked}}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-10px;right:16px;font-size:11px;font-weight:600;padding:2px 10px;border-radius:9999px;background:#116f3c;color:#fff">Customer preferred</span></sc-if>
+                  <div style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#6b7280">{{o.name}}</div>
+                  <div style="font-size:26px;font-weight:700;margin-top:6px">AED {{o.total}}</div>
+                  <div style="font-size:12px;color:#6b7280">incl. VAT 5% · ready in {{o.eta}}</div>
+                  <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;font-size:13px;color:#374151">
+                    <sc-for list="{{o.inc}}" as="i" hint-placeholder-count="4"><div style="display:flex;gap:8px"><span style="width:6px;height:6px;border-radius:9999px;background:#116f3c;margin-top:7px;flex:0 0 6px"></span>{{i.t}}</div></sc-for>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+
+          <!-- Lines -->
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05);overflow:hidden">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #e5e7eb">
+              <span style="font-size:18px;font-weight:600">Recommended option, line items</span>
+              <div style="display:flex;gap:8px">
+                <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px;font-weight:500">+ Add part</button>
+                <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px;font-weight:500">+ Add labour</button>
+              </div>
+            </div>
+            <div style="overflow-x:auto">
+              <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:860px">
+                <thead>
+                  <tr style="background:#f9fafb;color:#4b5563;text-align:left;font-size:12px">
+                    <th style="padding:10px 12px 10px 24px;font-weight:500">#</th>
+                    <th style="padding:10px 12px;font-weight:500">Item</th>
+                    <th style="padding:10px 12px;font-weight:500">Code</th>
+                    <th style="padding:10px 12px;font-weight:500">Availability</th>
+                    <th style="padding:10px 12px;font-weight:500;text-align:right">Qty</th>
+                    <th style="padding:10px 12px;font-weight:500;text-align:right">Unit price</th>
+                    <th style="padding:10px 12px;font-weight:500;text-align:right">Margin</th>
+                    <th style="padding:10px 24px 10px 12px;font-weight:500;text-align:right">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <sc-for list="{{lines}}" as="l" hint-placeholder-count="6">
+                    <tr style="border-top:1px solid #e5e7eb">
+                      <td style="padding:11px 12px 11px 24px;color:#6b7280">{{l.n}}</td>
+                      <td style="padding:11px 12px"><div style="font-weight:500">{{l.name}}</div><div style="font-size:12px;color:#6b7280">{{l.type}}</div></td>
+                      <td style="padding:11px 12px;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;color:#4b5563">{{l.code}}</td>
+                      <td style="padding:11px 12px"><span style="font-size:12px;font-weight:500;padding:2px 10px;border-radius:9999px;background:{{l.bg}};color:{{l.fg}};white-space:nowrap">{{l.avail}}</span></td>
+                      <td style="padding:11px 12px;text-align:right">{{l.qty}}</td>
+                      <td style="padding:11px 12px;text-align:right;color:#4b5563">{{l.unit}}</td>
+                      <td style="padding:11px 12px;text-align:right;color:#4b5563">{{l.margin}}</td>
+                      <td style="padding:11px 24px 11px 12px;text-align:right;font-weight:600">{{l.amount}}</td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="padding:16px 24px;border-bottom:1px solid #e5e7eb;font-size:18px;font-weight:600">Notes and terms</div>
+            <div style="padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+              <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:500;color:#374151">Note to customer</label><textarea rows="4" readOnly="{{yes}}">Front brake discs were near the wear limit at your last visit. We will measure them when the pads come off and call you before replacing anything not listed here.</textarea></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:500;color:#374151">Internal note</label><textarea rows="4" readOnly="{{yes}}">Customer is price aware. Offer the Essential option if Recommended is declined. Check discs, rear pads and tyre pressure warning.</textarea></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:500;color:#374151">Valid until</label><input value="21/10/2026" readOnly="{{yes}}"></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:500;color:#374151">Deposit requested</label><input value="AED 400.00 (30%)" readOnly="{{yes}}"></div>
+            </div>
+          </section>
+        </div>
+
+        <aside style="flex:1 1 320px;max-width:400px;min-width:300px;display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="font-size:16px;font-weight:600;margin-bottom:14px">Recommended total</div>
+            <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+              <sc-for list="{{totals}}" as="t" hint-placeholder-count="4"><div style="display:flex;justify-content:space-between;color:#4b5563"><span>{{t.label}}</span><span style="color:#111827">{{t.value}}</span></div></sc-for>
+              <div style="display:flex;justify-content:space-between;border-top:1px solid #e5e7eb;padding-top:12px;font-size:20px;font-weight:700"><span>Total</span><span style="color:#116f3c">AED {{grand}}</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:13px;color:#6b7280"><span>Expected margin</span><span>{{margin}}</span></div>
+            </div>
+          </div>
+
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="font-size:16px;font-weight:600;margin-bottom:12px">Send to customer</div>
+            <div style="display:flex;gap:8px;margin-bottom:14px">
+              <sc-for list="{{channels}}" as="c" hint-placeholder-count="4"><span style="font-size:13px;font-weight:500;padding:6px 12px;border-radius:9999px;border:1px solid {{c.bd}};background:{{c.bg}};color:{{c.fg}}">{{c.label}}</span></sc-for>
+            </div>
+            <div style="background:#e5ddd5;border-radius:8px;padding:14px">
+              <div style="background:#fff;border-radius:8px;padding:10px 12px;font-size:13px;line-height:19px;color:#111827;max-width:92%;box-shadow:0 1px 1px rgb(0 0 0 / 0.1)">
+                <div style="font-weight:600">Excellence Services</div>
+                Hello Peter, your estimate EST-0118 for the Audi A7 (Q 56081) is ready. Recommended option: <strong>AED 1,414.35</strong> including VAT. Reply YES to approve or open the link to compare options.
+                <div style="margin-top:8px;padding:8px;border-radius:6px;background:#f3f4f6;font-size:12px;color:#4b5563">View estimate and approve</div>
+                <div style="font-size:11px;color:#6b7280;text-align:right;margin-top:4px">09:30 AM <span style="color:#00a5f4">&#10003;&#10003;</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="font-size:16px;font-weight:600;margin-bottom:14px">Approval</div>
+            <sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+              <div style="display:flex;gap:12px">
+                <div style="display:flex;flex-direction:column;align-items:center">
+                  <span style="width:14px;height:14px;border-radius:9999px;background:{{s.dot}};border:2px solid {{s.ring}};margin-top:3px"></span>
+                  <span style="width:2px;flex:1;min-height:26px;background:{{s.line}}"></span>
+                </div>
+                <div style="padding-bottom:12px"><div style="font-weight:500;color:{{s.fg}}">{{s.label}}</div><div style="font-size:12px;color:#6b7280">{{s.when}}</div></div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #e5e7eb"><span style="font-size:16px;font-weight:600">Recent estimations</span><span style="font-size:12px;font-weight:500;padding:2px 8px;border-radius:9999px;background:#ecf8f0;color:#116f3c">68% approved</span></div>
+            <sc-for list="{{recent}}" as="r" hint-placeholder-count="5">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 20px;border-top:1px solid #f3f4f6;font-size:13px">
+                <div><div style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:500">{{r.no}}</div><div style="color:#6b7280">{{r.who}} · {{r.amt}}</div></div>
+                <span style="font-size:12px;font-weight:500;padding:2px 10px;border-radius:9999px;background:{{r.bg}};color:{{r.fg}}">{{r.status}}</span>
+              </div>
+            </sc-for>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const I = {
+      dash: 'M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z',
+      wrench: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z',
+      file: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M8 13h8 M8 17h8',
+      receipt: 'M4 2v20l3-2 2 2 3-2 3 2 2-2 3 2V2l-3 2-2-2-3 2-3-2-2 2z M8 8h8 M8 12h8',
+      pack: 'M16.5 9.4 7.5 4.2 M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z M3.3 7 12 12l8.7-5 M12 22V12',
+      users: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.9 M16 3.1a4 4 0 0 1 0 7.8',
+      chart: 'M3 3v18h18 M7 16v-5 M12 16V7 M17 16v-9',
+      car: 'M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11 M3 11h18v6a1 1 0 0 1-1 1h-2v1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H9v1a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-1H4a1 1 0 0 1-1-1z M7 15h.01 M17 15h.01',
+      shield: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+      db: 'M12 8c4.4 0 8-1.3 8-3s-3.6-3-8-3-8 1.3-8 3 3.6 3 8 3z M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5 M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3',
+      wallet: 'M20 7H5a2 2 0 0 1 0-4h13v4 M3 5v14a2 2 0 0 0 2 2h15v-4 M17 12h5v4h-5a2 2 0 0 1 0-4z',
+      brief: 'M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16 M3 7h18a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a1 1 0 0 1 1-1z',
+      cart: 'M6 6h15l-1.5 9h-12z M6 6 5 2H2 M9 20h.01 M18 20h.01'
+    };
+    const item = (label, d, active, count) => ({ isItem: true, isHeader: false, label, d, bg: active ? '#fafafa' : 'transparent', fg: active ? '#000000' : '#e5e5e5', weight: active ? 500 : 400, hasCount: !!count, count: count || '' });
+    const hd = (label) => ({ isHeader: true, isItem: false, label });
+    const nav = [
+      hd('Workshop'), item('Dashboard', I.dash, false), item('Job cards', I.wrench, false, '14'), item('Estimations', I.file, true, '6'), item('Billing job cards', I.receipt, false, '3'),
+      hd('Operations'), item('Customers and vehicles', I.car, false), item('Inventory', I.pack, false), item('Purchases', I.cart, false), item('Advisors', I.users, false),
+      hd('Finance'), item('Invoices', I.receipt, false), item('E-invoicing', I.receipt, false), item('Accounts', I.wallet, false), item('Reports', I.chart, false),
+      hd('Administration'), item('HRMS', I.brief, false), item('User privilege', I.shield, false), item('Backup', I.db, false)
+    ];
+    const fmt = (v) => v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const head = [
+      { label: 'Customer', value: 'Peter Hansen' }, { label: 'Mobile', value: '050 890 0000' }, { label: 'Vehicle', value: 'Audi A7 2019' }, { label: 'Plate', value: 'Q 56081' },
+      { label: 'Odometer', value: '48,250 km' }, { label: 'Advisor', value: 'Hamza Ali' }, { label: 'From intake', value: 'Today, 09:12 AM' }, { label: 'Job card', value: 'Not created yet' }
+    ];
+    const rec = 1347, ess = 594, pre = 1677;
+    const opt = (name, base, eta, inc, picked) => ({ name, total: fmt(base * 1.05), eta, inc: inc.map((t) => ({ t })), picked, bd: picked ? '2px solid #116f3c' : '1px solid #e5e7eb', sh: picked ? '0 0 0 3px #ecf8f0' : '0 1px 2px rgb(0 0 0 / 0.05)' });
+    const options = [
+      opt('Essential', ess, '2 hrs', ['Oil and filter change', 'Engine oil 5W-30 and new filter', 'Basic safety check'], false),
+      opt('Recommended', rec, '1 day', ['Everything in Essential', 'Front brake pads and disc check', 'AC performance check', 'Tyre pressure warning check'], true),
+      opt('Premium', pre, '1 day', ['Everything in Recommended', 'Four-wheel alignment and tyre rotation', 'Full AC service with gas top-up', 'Interior and exterior wash'], false)
+    ];
+    const av = (s) => ({ 'In stock': ['#ecf8f0', '#116f3c'], 'Low stock': ['#fffbeb', '#b45309'], 'Labour': ['#f3f4f6', '#4b5563'] }[s]);
+    const raw = [['Part', '5W-20 oil filter', '1001', 'Low stock', 1, 250, 150], ['Part', 'Engine oil 5W-30, 5 L', '2090', 'Low stock', 1, 224, 40], ['Part', 'Front brake pads, Audi A7', '4417', 'In stock', 1, 403, 30], ['Labour', 'Oil and filter change, 1.0 hr', 'LB-010', 'Labour', 1, 120, 0], ['Labour', 'Brake inspection and pad replacement, 1.5 hr', 'LB-022', 'Labour', 1, 300, 0], ['Labour', 'AC performance check, 0.5 hr', 'LB-031', 'Labour', 1, 50, 0]];
+    const lines = raw.map((r, i) => { const c = av(r[3]); return { n: i + 1, type: r[0], name: r[1], code: r[2], avail: r[3] === 'Low stock' ? 'Low stock, ok to use' : r[3], bg: c[0], fg: c[1], qty: r[4], unit: fmt(r[5]), margin: r[6] ? r[6] + '%' : '-', amount: fmt(r[4] * r[5]) }; });
+    const totals = [{ label: 'Parts', value: 'AED ' + fmt(877) }, { label: 'Labour', value: 'AED ' + fmt(470) }, { label: 'Subtotal', value: 'AED ' + fmt(rec) }, { label: 'VAT 5%', value: 'AED ' + fmt(rec * 0.05) }];
+    const ch = (label, on) => ({ label, bg: on ? '#ecf8f0' : '#ffffff', bd: on ? '#116f3c' : '#d1d5db', fg: on ? '#116f3c' : '#374151' });
+    const channels = [ch('WhatsApp', true), ch('SMS', false), ch('Email', false), ch('Print', false)];
+    const st = (label, when, state) => ({ label, when, dot: state === 'done' ? '#116f3c' : (state === 'cur' ? '#fffbeb' : '#ffffff'), ring: state === 'done' ? '#116f3c' : (state === 'cur' ? '#b45309' : '#d1d5db'), line: state === 'done' ? '#116f3c' : '#e5e7eb', fg: state === 'todo' ? '#6b7280' : '#111827' });
+    const steps = [st('Created', '18 Oct, 09:25 AM, Hamza Ali', 'done'), st('Sent on WhatsApp', '18 Oct, 09:30 AM', 'done'), st('Opened by customer', '18 Oct, 09:32 AM, viewed 2 times', 'done'), st('Waiting for approval', 'Reminder goes out at 12:00 PM', 'cur')];
+    const rc = (no, who, amt, status) => { const m = { Approved: ['#ecf8f0', '#116f3c'], Sent: ['#fffbeb', '#b45309'], Declined: ['#fef2f2', '#b91c1c'], Expired: ['#f3f4f6', '#4b5563'] }[status]; return { no, who, amt, status, bg: m[0], fg: m[1] }; };
+    const recent = [rc('EST-0118', 'Peter Hansen', 'AED 1,414.35', 'Sent'), rc('EST-0117', 'Sara Ahmed', 'AED 2,257.50', 'Approved'), rc('EST-0116', 'Karim Nasser', 'AED 980.00', 'Declined'), rc('EST-0115', 'Omar Khalid', 'AED 7,950.00', 'Approved'), rc('EST-0114', 'Anish Menon', 'AED 384.84', 'Expired')];
+    return { yes: true, nav, head, options, lines, totals, grand: fmt(rec * 1.05), margin: '38.4%', channels, steps, recent };
+  }
+}
+</script>
+</body>
+</html>

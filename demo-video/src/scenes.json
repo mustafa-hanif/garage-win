@@ -1,0 +1,11 @@
+[
+  { "id": "title", "text": "Garage Pro. The workshop system built for UAE garages." },
+  { "id": "intake", "text": "A customer pulls in. Search the plate, and their history is already there. Note the complaint, mark any damage, and take a signature, in under two minutes." },
+  { "id": "estimate", "text": "Garage Pro builds three estimate options from your price list, and sends them on WhatsApp. The customer approves from their phone." },
+  { "id": "jobcard", "text": "The approved estimate becomes a job card. Parts are reserved from stock, labour goes to a technician, and every bay is tracked live." },
+  { "id": "stock", "text": "When stock runs low, Garage Pro suggests the order, matches the supplier invoice, and records your input VAT." },
+  { "id": "billing", "text": "At delivery, issue a numbered tax invoice in one click. It's locked, VAT-correct, and ready to print." },
+  { "id": "einvoice", "text": "For business customers, the e-invoice goes out through Wafeq, in the PINT AE format, built for the UAE e-invoicing rollout." },
+  { "id": "dashboard", "text": "And every morning, one dashboard shows revenue, open jobs, customer dues, and stock." },
+  { "id": "end", "text": "Garage Pro. Book your demo today." }
+]

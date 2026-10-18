@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Garage Pro employee master</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0;font-family:Geist,ui-sans-serif,system-ui,sans-serif;color:#111827;background:#f9fafb;font-size:14px}
+a{color:#116f3c;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+input,select{height:36px;width:100%;box-sizing:border-box;padding:0 12px;border:1px solid #d1d5db;border-radius:6px;background:#fff;color:#111827;font-size:14px}
+textarea{width:100%;box-sizing:border-box;padding:8px 12px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;resize:none}
+</style>
+</helmet>
+<div style="display:flex;min-height:100vh;width:100%;background:#f9fafb">
+
+  <aside style="flex:0 0 248px;background:#000;color:#f5f5f5;padding:20px 12px;box-sizing:border-box;display:flex;flex-direction:column;gap:2px">
+    <div style="display:flex;align-items:center;gap:10px;padding:4px 10px 20px">
+      <div style="width:34px;height:34px;border-radius:8px;background:#116f3c;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff">GP</div>
+      <div>
+        <div style="font-weight:600;font-size:16px;line-height:18px">Garage Pro</div>
+        <div style="font-size:11px;color:#9ca3af">Workshop management</div>
+      </div>
+    </div>
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="22">
+      <div>
+        <sc-if value="{{n.isHeader}}" hint-placeholder-val="{{ false }}">
+          <div style="padding:16px 12px 6px;font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#9ca3af">{{n.label}}</div>
+        </sc-if>
+        <sc-if value="{{n.isItem}}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;align-items:center;gap:10px;padding:{{n.py}}px 12px {{n.py}}px {{n.pl}}px;border-radius:6px;font-size:{{n.fs}}px;background:{{n.bg}};color:{{n.fg}};font-weight:{{n.weight}}">
+            <sc-if value="{{n.hasIcon}}" hint-placeholder-val="{{ true }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{n.d}}"></path></svg>
+            </sc-if>
+            <span style="flex:1">{{n.label}}</span>
+            <sc-if value="{{n.hasCount}}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:11px;font-weight:600;padding:1px 7px;border-radius:9999px;background:#116f3c;color:#fff">{{n.count}}</span>
+            </sc-if>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+    <div style="flex:1"></div>
+    <div style="display:flex;align-items:center;gap:10px;padding:12px;border-top:1px solid #292a2e;margin-top:12px">
+      <div style="width:34px;height:34px;border-radius:9999px;background:#2b2d31;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">HA</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:500">Hamza Ali</div>
+        <div style="font-size:12px;color:#9ca3af">Super admin</div>
+      </div>
+    </div>
+  </aside>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="background:#fff;border-bottom:1px solid #e5e7eb;padding:0 32px;min-height:64px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+      <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280;flex:1">
+        <a href="#">HRMS</a>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+        <a href="#">Masters</a>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+        <span style="color:#111827;font-weight:500">Employee</span>
+      </div>
+      <button style="display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Branch: Dubai - Al Quoz</button>
+      <button aria-label="Notifications" style="width:36px;height:36px;border-radius:6px;border:1px solid #e5e7eb;background:#fff;color:#374151;display:flex;align-items:center;justify-content:center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9 M10.3 21a1.9 1.9 0 0 0 3.4 0"></path></svg>
+      </button>
+    </header>
+
+    <main style="padding:28px 32px 40px;display:flex;flex-direction:column;gap:24px;box-sizing:border-box">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:16px">
+        <div>
+          <h1 style="margin:0;font-size:30px;line-height:36px;font-weight:700">Employee</h1>
+          <div style="font-size:14px;color:#6b7280;margin-top:4px">Add or update an employee, salary structure and documents</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button style="height:36px;padding:0 16px;border-radius:6px;border:0;background:#116f3c;color:#fff;font-size:14px;font-weight:500">Save employee</button>
+          <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Clear</button>
+          <button style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #116f3c;background:#fff;color:#116f3c;font-size:14px;font-weight:500">New employee</button>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+        <div style="flex:1 1 720px;min-width:0;display:flex;flex-direction:column;gap:20px">
+
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="padding:16px 24px;border-bottom:1px solid #e5e7eb;font-size:18px;font-weight:600">Personal and contact details</div>
+            <div style="padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px 20px">
+              <sc-for list="{{personal}}" as="f" hint-placeholder-count="12">
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <label style="font-size:13px;font-weight:500;color:#374151">{{f.label}}<span style="color:#b91c1c">{{f.req}}</span></label>
+                  <sc-if value="{{f.isText}}" hint-placeholder-val="{{ true }}">
+                    <input value="{{f.value}}" readOnly="{{yes}}" style="background:{{f.bg}}">
+                  </sc-if>
+                  <sc-if value="{{f.isSelect}}" hint-placeholder-val="{{ false }}">
+                    <select><option>{{f.value}}</option></select>
+                  </sc-if>
+                </div>
+              </sc-for>
+              <div style="display:flex;flex-direction:column;gap:6px;grid-column:span 2;min-width:0">
+                <label style="font-size:13px;font-weight:500;color:#374151">UAE address</label>
+                <textarea rows="3" readOnly="{{yes}}">Flat 304, Al Quoz Staff Residence 2, Al Quoz Industrial Area 3, Dubai</textarea>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;grid-column:span 1;min-width:0">
+                <label style="font-size:13px;font-weight:500;color:#374151">Home country address</label>
+                <textarea rows="3" readOnly="{{yes}}">House 14, Street 6, Gulberg, Lahore, Pakistan</textarea>
+              </div>
+            </div>
+          </section>
+
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="padding:16px 24px;border-bottom:1px solid #e5e7eb;font-size:18px;font-weight:600">Employment</div>
+            <div style="padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px 20px">
+              <sc-for list="{{employment}}" as="f" hint-placeholder-count="8">
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <label style="font-size:13px;font-weight:500;color:#374151">{{f.label}}<span style="color:#b91c1c">{{f.req}}</span></label>
+                  <sc-if value="{{f.isText}}" hint-placeholder-val="{{ true }}">
+                    <input value="{{f.value}}" readOnly="{{yes}}" style="background:{{f.bg}}">
+                  </sc-if>
+                  <sc-if value="{{f.isSelect}}" hint-placeholder-val="{{ false }}">
+                    <select><option>{{f.value}}</option></select>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #e5e7eb">
+              <span style="font-size:18px;font-weight:600">Monthly salary</span>
+              <span style="font-size:13px;color:#6b7280">AED, paid on the last working day</span>
+            </div>
+            <div style="padding:24px;display:flex;flex-wrap:wrap;gap:24px">
+              <div style="flex:1 1 360px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px 20px">
+                <sc-for list="{{salary}}" as="s" hint-placeholder-count="5">
+                  <div style="display:flex;flex-direction:column;gap:6px">
+                    <label style="font-size:13px;font-weight:500;color:#374151">{{s.label}}</label>
+                    <input value="{{s.value}}" readOnly="{{yes}}" style="text-align:right">
+                  </div>
+                </sc-for>
+              </div>
+              <div style="flex:0 1 260px;min-width:220px;background:#ecf8f0;border-radius:8px;padding:18px;align-self:stretch;display:flex;flex-direction:column;justify-content:center">
+                <div style="font-size:13px;color:#116f3c;font-weight:500">Total monthly package</div>
+                <div style="font-size:30px;font-weight:700;color:#116f3c;margin-top:4px">{{salaryTotal}}</div>
+                <div style="font-size:12px;color:#116f3c;margin-top:4px">Overtime and bonus are added in payroll</div>
+              </div>
+            </div>
+          </section>
+
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="padding:16px 24px;border-bottom:1px solid #e5e7eb;font-size:18px;font-weight:600">Documents</div>
+            <div style="padding:8px 24px 16px">
+              <sc-for list="{{docs}}" as="d" hint-placeholder-count="5">
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:14px 0;border-bottom:1px solid #f3f4f6">
+                  <div style="flex:0 0 40px;height:40px;border-radius:8px;background:#f3f4f6;color:#4b5563;display:flex;align-items:center;justify-content:center">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6"></path></svg>
+                  </div>
+                  <div style="flex:1 1 200px;min-width:0">
+                    <div style="font-weight:500">{{d.name}}</div>
+                    <div style="font-size:12px;color:#6b7280;font-family:'Geist Mono',ui-monospace,monospace">{{d.file}}</div>
+                  </div>
+                  <div style="flex:0 0 140px;font-size:13px;color:#4b5563">Expires <strong style="color:#111827">{{d.exp}}</strong></div>
+                  <span style="flex:0 0 auto;font-size:12px;font-weight:500;padding:2px 10px;border-radius:9999px;background:{{d.bg}};color:{{d.fg}}">{{d.status}}</span>
+                  <button style="height:32px;padding:0 12px;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:13px;font-weight:500">Replace file</button>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+        </div>
+
+        <aside style="flex:1 1 320px;max-width:380px;min-width:300px;display:flex;flex-direction:column;gap:20px">
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:24px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05);text-align:center">
+            <div style="width:88px;height:88px;border-radius:9999px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;margin:0 auto">IK</div>
+            <div style="font-size:18px;font-weight:600;margin-top:12px">Imran Khan</div>
+            <div style="font-size:13px;color:#6b7280">Senior mechanic · Mechanical</div>
+            <div style="display:flex;justify-content:center;gap:8px;margin-top:10px">
+              <span style="font-size:12px;font-weight:500;padding:2px 10px;border-radius:9999px;background:#ecf8f0;color:#116f3c">Active</span>
+              <span style="font-size:12px;font-weight:500;padding:2px 10px;border-radius:9999px;background:#f3f4f6;color:#374151;font-family:'Geist Mono',ui-monospace,monospace">LC-20418</span>
+            </div>
+            <button style="margin-top:16px;height:36px;width:100%;border-radius:6px;border:1px solid #d1d5db;background:#fff;color:#374151;font-size:14px;font-weight:500">Change photo</button>
+          </div>
+
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05)">
+            <div style="font-size:16px;font-weight:600;margin-bottom:12px">This month</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <sc-for list="{{month}}" as="m" hint-placeholder-count="4">
+                <div style="background:#f9fafb;border-radius:6px;padding:12px"><div style="font-size:12px;color:#6b7280">{{m.label}}</div><div style="font-size:18px;font-weight:600;margin-top:2px">{{m.value}}</div></div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="background:#fffbeb;border:1px solid #fde8b4;border-radius:8px;padding:20px">
+            <div style="font-size:16px;font-weight:600;color:#b45309">Document alert</div>
+            <div style="font-size:14px;color:#b45309;margin-top:6px">Passport expires in 15 days (02/11/2026). Start the renewal so payroll and visa are not blocked.</div>
+            <button style="margin-top:12px;height:32px;padding:0 12px;border-radius:6px;border:1px solid #b45309;background:#fff;color:#b45309;font-size:13px;font-weight:500">Set reminder</button>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Employee list -->
+      <section style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 1px 2px rgb(0 0 0 / 0.05);overflow:hidden">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:16px 24px;border-bottom:1px solid #e5e7eb">
+          <div>
+            <div style="font-size:18px;font-weight:600">All employees</div>
+            <div style="font-size:13px;color:#6b7280;margin-top:2px">8 employees in Dubai - Al Quoz</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border:1px solid #d1d5db;border-radius:6px;min-width:240px;color:#9ca3af;font-size:14px">Search employee</div>
+        </div>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:860px">
+            <thead>
+              <tr style="background:#f9fafb;color:#4b5563;text-align:left;font-size:12px">
+                <th style="padding:11px 12px 11px 24px;font-weight:500">Employee</th>
+                <th style="padding:11px 12px;font-weight:500">Address</th>
+                <th style="padding:11px 12px;font-weight:500">Phone</th>
+                <th style="padding:11px 12px;font-weight:500">Department</th>
+                <th style="padding:11px 12px;font-weight:500">Labour code</th>
+                <th style="padding:11px 12px;font-weight:500">Status</th>
+                <th style="padding:11px 24px 11px 12px;font-weight:500;text-align:right">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{staff}}" as="e" hint-placeholder-count="8">
+                <tr style="border-top:1px solid #e5e7eb">
+                  <td style="padding:12px 12px 12px 24px"><div style="display:flex;align-items:center;gap:12px"><span style="width:34px;height:34px;border-radius:9999px;background:#ecf8f0;color:#116f3c;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">{{e.init}}</span><span style="font-weight:500">{{e.name}}</span></div></td>
+                  <td style="padding:12px 12px;color:#4b5563">{{e.addr}}</td>
+                  <td style="padding:12px 12px;color:#4b5563">{{e.phone}}</td>
+                  <td style="padding:12px 12px">{{e.dept}}</td>
+                  <td style="padding:12px 12px;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px">{{e.code}}</td>
+                  <td style="padding:12px 12px"><span style="font-size:12px;font-weight:500;padding:2px 10px;border-radius:9999px;background:{{e.bg}};color:{{e.fg}}">{{e.status}}</span></td>
+                  <td style="padding:12px 24px 12px 12px;text-align:right"><a href="#" style="font-weight:500;font-size:13px;margin-right:12px">Edit</a><a href="#" style="font-weight:500;font-size:13px;color:#4b5563">View</a></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2160}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const I = {
+      dash: 'M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z',
+      wrench: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z',
+      file: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M8 13h8 M8 17h8',
+      receipt: 'M4 2v20l3-2 2 2 3-2 3 2 2-2 3 2V2l-3 2-2-2-3 2-3-2-2 2z M8 8h8 M8 12h8',
+      pack: 'M16.5 9.4 7.5 4.2 M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z M3.3 7 12 12l8.7-5 M12 22V12',
+      users: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.9 M16 3.1a4 4 0 0 1 0 7.8',
+      chart: 'M3 3v18h18 M7 16v-5 M12 16V7 M17 16v-9',
+      car: 'M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11 M3 11h18v6a1 1 0 0 1-1 1h-2v1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H9v1a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-1H4a1 1 0 0 1-1-1z M7 15h.01 M17 15h.01',
+      shield: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+      db: 'M12 8c4.4 0 8-1.3 8-3s-3.6-3-8-3-8 1.3-8 3 3.6 3 8 3z M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5 M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3',
+      wallet: 'M20 7H5a2 2 0 0 1 0-4h13v4 M3 5v14a2 2 0 0 0 2 2h15v-4 M17 12h5v4h-5a2 2 0 0 1 0-4z',
+      brief: 'M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16 M3 7h18a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a1 1 0 0 1 1-1z',
+      cart: 'M6 6h15l-1.5 9h-12z M6 6 5 2H2 M9 20h.01 M18 20h.01'
+    };
+    const item = (label, d, active, count) => ({ isItem: true, isHeader: false, hasIcon: true, label, d, py: 9, pl: 12, fs: 14, bg: active ? '#fafafa' : 'transparent', fg: active ? '#000000' : '#e5e5e5', weight: active ? 500 : 400, hasCount: !!count, count: count || '' });
+    const sub = (label, active) => ({ isItem: true, isHeader: false, hasIcon: false, label, d: '', py: 7, pl: 40, fs: 13, bg: active ? '#2b2d31' : 'transparent', fg: active ? '#ffffff' : '#c8c9cc', weight: active ? 500 : 400, hasCount: false, count: '' });
+    const head = (label) => ({ isHeader: true, isItem: false, label });
+    const nav = [
+      head('Workshop'), item('Dashboard', I.dash, false), item('Job cards', I.wrench, false, '14'), item('Estimations', I.file, false), item('Billing job cards', I.receipt, false, '3'),
+      head('Operations'), item('Customers and vehicles', I.car, false), item('Inventory', I.pack, false), item('Purchases', I.cart, false),
+      head('Finance'), item('Invoices', I.receipt, false), item('E-invoicing', I.receipt, false), item('Accounts', I.wallet, false), item('Reports', I.chart, false),
+      head('Administration'), item('HRMS', I.brief, true),
+      sub('Employee masters', true), sub('Employee bank details', false), sub('Employee family details', false), sub('Attendance', false), sub('Overtime', false), sub('Employee settlement', false), sub('Deductions and bonus', false), sub('Loans', false),
+      item('User privilege', I.shield, false), item('Backup', I.db, false)
+    ];
+    const t = (label, value, req) => ({ label, value, req: req ? ' *' : '', isText: true, isSelect: false, bg: '#ffffff' });
+    const ro = (label, value) => ({ label, value, req: '', isText: true, isSelect: false, bg: '#f3f4f6' });
+    const s = (label, value, req) => ({ label, value, req: req ? ' *' : '', isText: false, isSelect: true, bg: '#ffffff' });
+    const personal = [
+      ro('Employee code', 'EMP-014'), t('Full name', 'Imran Khan', true), t('Nationality', 'Pakistani'),
+      t('Date of birth', '12/05/1988'), s('Gender', 'Male'), s('Marital status', 'Married'),
+      t('Mobile', '050 441 2208', true), t('Additional UAE contact no', '04 339 1180'), t('Email', 'imran.khan@example.com')
+    ];
+    const employment = [
+      s('Department', 'Mechanical', true), s('Designation', 'Senior mechanic'), ro('Labour code', 'LC-20418'),
+      t('Joining date', '03/02/2021', true), t('Insurance no', 'INS-558210'), t('Insurance expiry date', '31/12/2026'),
+      s('Reports to', 'Sunil P., Supervisor'), s('Status', 'Active', true)
+    ];
+    const fmt = (v) => v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const sal = [['Basic salary', 2500], ['Transportation', 300], ['Accommodation', 700], ['Insurance', 150], ['Others', 100]];
+    const salaryTotal = 'AED ' + fmt(sal.reduce((a, r) => a + r[1], 0));
+    const salary = sal.map((r) => ({ label: r[0], value: fmt(r[1]) }));
+    const dc = (name, file, exp, status, tone) => ({ name, file, exp, status, bg: tone === 'ok' ? '#ecf8f0' : '#fffbeb', fg: tone === 'ok' ? '#116f3c' : '#b45309' });
+    const docs = [
+      dc('Photo', 'imran-khan-photo.jpg', 'No expiry', 'Uploaded', 'ok'),
+      dc('Emirates ID', 'emirates-id-784-1988.pdf', '14/03/2027', 'Valid', 'ok'),
+      dc('Passport', 'passport-pk-ab12345.pdf', '02/11/2026', 'Expires in 15 days', 'warn'),
+      dc('Health insurance card', 'health-card-2026.pdf', '31/12/2026', 'Valid', 'ok'),
+      dc('Labour card', 'labour-card-lc-20418.pdf', '22/05/2027', 'Valid', 'ok')
+    ];
+    const month = [{ label: 'Days present', value: '16 / 18' }, { label: 'Overtime', value: '12.5 hrs' }, { label: 'Job cards done', value: '21' }, { label: 'Billable hours', value: '104' }];
+    const st = (name, addr, phone, dept, code, status) => ({ name, init: name.split(' ').map((w) => w[0]).join(''), addr, phone, dept, code, status, bg: status === 'Active' ? '#ecf8f0' : '#f3f4f6', fg: status === 'Active' ? '#116f3c' : '#4b5563' });
+    const staff = [
+      st('Imran Khan', 'Al Quoz Staff Residence 2', '050 441 2208', 'Mechanical', 'LC-20418', 'Active'),
+      st('Rizwan Ahmed', 'Al Quoz Staff Residence 2', '055 308 7712', 'Mechanical', 'LC-20433', 'Active'),
+      st('Sunil Pillai', 'Al Barsha 1, Villa 12', '056 120 4491', 'Supervisor', 'LC-19877', 'Active'),
+      st('Noor Fatima', 'Business Bay, Tower B', '052 667 3180', 'Service advisor', 'LC-21104', 'Active'),
+      st('Hamza Ali', 'Jumeirah Village Circle', '050 902 1156', 'Service advisor', 'LC-18560', 'Active'),
+      st('Yusuf Demir', 'Al Quoz Staff Residence 1', '054 811 6023', 'Electrical', 'LC-20790', 'Active'),
+      st('Arjun Nair', 'Al Qusais 2', '056 774 9084', 'Denting and painting', 'LC-20155', 'Active'),
+      st('Bilal Hussain', 'Al Quoz Staff Residence 1', '055 240 1937', 'Polishing', 'LC-19340', 'On leave')
+    ];
+    return { yes: true, nav, personal, employment, salary, salaryTotal, docs, month, staff };
+  }
+}
+</script>
+</body>
+</html>
