@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "garage-pro",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "vars": {
+    "DEFAULT_TENANT_ID": "tnt_excellence"
+    // TURSO_DATABASE_URL goes here or in .dev.vars; TURSO_AUTH_TOKEN is a secret:
+    //   npx wrangler secret put TURSO_AUTH_TOKEN
+  },
+  "observability": { "enabled": true }
+}
